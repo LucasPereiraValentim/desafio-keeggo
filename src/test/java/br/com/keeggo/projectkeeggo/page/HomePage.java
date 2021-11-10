@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 
 public class HomePage {
 	
-	private final By byRedirecionaLogin = By.xpath("//*[@id=\"menuUser\"]");
+	private final By byRedirecionaLogin = By.id("menuUser");
 
 	public By getByRedirecionaLogin() {
 		return byRedirecionaLogin;

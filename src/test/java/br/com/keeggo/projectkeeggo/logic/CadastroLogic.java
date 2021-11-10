@@ -23,7 +23,7 @@ public class CadastroLogic extends WebDriverConfig{
 	public void preenchoUsuario() {
 		final String msg = "\t\t\tLogs: ---- Preencho o campo \"Username\" ----";
 		System.out.println(msg);
-		super.waitElement(cadastroPage.getByInputNomeDeUsuario(), 20L);
+		super.waitElementToBeClickable(cadastroPage.getByInputNomeDeUsuario(), 10);
 		super.browser.findElement(this.cadastroPage.getByInputNomeDeUsuario()).sendKeys(CadastroPage.NOME_USUARIO);	
 		this.configEvidencia.gerarScreenshot(super.browser);
 		
@@ -31,7 +31,7 @@ public class CadastroLogic extends WebDriverConfig{
 	public void preenchoEmail() {
 		final String msg = "\t\t\tLogs: ---- Preencho o campo \"Email\" ----";
 		System.out.println(msg);
-		super.waitElement(cadastroPage.getByInputEmail(), 5L);
+		super.waitElementToBeClickable(cadastroPage.getByInputEmail(), 10);
 		super.browser.findElement(this.cadastroPage.getByInputEmail()).sendKeys("lucas.costa@pop.com.br");
 		this.configEvidencia.gerarScreenshot(super.browser);
 	}
@@ -39,15 +39,15 @@ public class CadastroLogic extends WebDriverConfig{
 	public void preenchoSenha() {
 		final String msg = "\t\t\tLogs: ---- Preencho o campo \"Password\" ----";
 		System.out.println(msg);
-		super.waitElement(cadastroPage.getByInputSenha(), 5L);
-		super.browser.findElement(this.cadastroPage.getByInputSenha()).sendKeys("#Pp82369785");
+		super.waitElementToBeClickable(cadastroPage.getByInputSenha(), 10);
+		super.browser.findElement(this.cadastroPage.getByInputSenha()).sendKeys(CadastroPage.SENHA);
 		this.configEvidencia.gerarScreenshot(super.browser);
 	}
 	
 	public void preenchoSenhaConfirmacao() {
 		final String msg = "\t\t\tLogs: ---- Preencho o campo \"Confirm password\" ----";
 		System.out.println(msg);
-		super.waitElement(cadastroPage.getByInputSenhaConfirmacao(), 5L);
+		super.waitElementToBeClickable(cadastroPage.getByInputSenhaConfirmacao(), 10);
 		super.browser.findElement(this.cadastroPage.getByInputSenhaConfirmacao()).sendKeys("#Pp82369785");
 		this.configEvidencia.gerarScreenshot(super.browser);
 	}
@@ -55,7 +55,7 @@ public class CadastroLogic extends WebDriverConfig{
 	public void preenchoPrimeiroNome() {
 		final String msg = "\t\t\tLogs: ---- Preencho o campo \"Fist Name\" ----";
 		System.out.println(msg);
-		super.waitElement(cadastroPage.getByInputPrimeiroNome(), 5L);
+		super.waitElementToBeClickable(cadastroPage.getByInputPrimeiroNome(), 10);
 		super.browser.findElement(this.cadastroPage.getByInputPrimeiroNome()).sendKeys("Lucas");
 		this.configEvidencia.gerarScreenshot(super.browser);
 	}
@@ -63,7 +63,7 @@ public class CadastroLogic extends WebDriverConfig{
 	public void preenchoSegundoNome() {
 		final String msg = "\t\t\tLogs: ---- Preencho o campo \"Last Name\" ----";
 		System.out.println(msg);
-		super.waitElement(cadastroPage.getByInputSegundoNome(), 5L);
+		super.waitElementToBeClickable(cadastroPage.getByInputSegundoNome(), 10);
 		super.browser.findElement(this.cadastroPage.getByInputSegundoNome()).sendKeys("Valentim");
 		this.configEvidencia.gerarScreenshot(super.browser);
 	}
@@ -71,7 +71,7 @@ public class CadastroLogic extends WebDriverConfig{
 	public void preenchoTelefone() {
 		final String msg = "\t\t\tLogs: ---- Preencho o campo \"Phone Number\" ----";
 		System.out.println(msg);
-		super.waitElement(cadastroPage.getByInputTelefone(), 5L);
+		super.waitElementToBeClickable(cadastroPage.getByInputTelefone(), 10);
 		super.browser.findElement(this.cadastroPage.getByInputTelefone()).sendKeys("(61) 111-111");
 		this.configEvidencia.gerarScreenshot(super.browser);
 	}
@@ -87,7 +87,7 @@ public class CadastroLogic extends WebDriverConfig{
 	public void preenchoCidade() {
 		final String msg = "\t\t\tLogs: ---- Preencho o campo \"City\" ----";
 		System.out.println(msg);
-		super.waitElement(cadastroPage.getByInputCidade(), 5L);
+		super.waitElementToBeClickable(cadastroPage.getByInputCidade(), 10);
 		super.browser.findElement(this.cadastroPage.getByInputCidade()).sendKeys("Planaltina");
 		this.configEvidencia.gerarScreenshot(super.browser);
 	}
@@ -96,7 +96,7 @@ public class CadastroLogic extends WebDriverConfig{
 	public void preenchoEndereco() {
 		final String msg = "\t\t\tLogs: ---- Preencho o campo \"Adress\" ----";
 		System.out.println(msg);
-		super.waitElement(cadastroPage.getByInputEndereco(), 5L);
+		super.waitElementToBeClickable(cadastroPage.getByInputEndereco(), 10);
 		super.browser.findElement(this.cadastroPage.getByInputEndereco()).sendKeys("Q. 5 Conj. F Lote 90");
 		this.configEvidencia.gerarScreenshot(super.browser);
 	}
@@ -104,7 +104,7 @@ public class CadastroLogic extends WebDriverConfig{
 	public void preenchoEstado() {
 		final String msg = "\t\t\tLogs: ---- Preencho o campo \"State/Province/Region\" ----";
 		System.out.println(msg);
-		super.waitElement(cadastroPage.getByInputEstado(), 5L);
+		super.waitElementToBeClickable(cadastroPage.getByInputEstado(), 10);
 		super.browser.findElement(this.cadastroPage.getByInputEstado()).sendKeys("Brasília");
 		this.configEvidencia.gerarScreenshot(super.browser);
 	}
@@ -113,7 +113,7 @@ public class CadastroLogic extends WebDriverConfig{
 	public void preenchoCep() {
 		final String msg = "\t\t\tLogs: ---- Preencho o campo \"Postal Code\" ----";
 		System.out.println(msg);
-		super.waitElement(cadastroPage.getByInputCep(), 5L);
+		super.waitElementToBeClickable(cadastroPage.getByInputCep(), 10);
 		super.browser.findElement(this.cadastroPage.getByInputCep()).sendKeys("73350-410");
 		this.configEvidencia.gerarScreenshot(super.browser);
 	}
@@ -122,7 +122,7 @@ public class CadastroLogic extends WebDriverConfig{
 		final String msg =
 				"\t\t\tLogs: ---- Clico na CheckBox \"I agree to the advantageonlineshopping.com Conditions Of Use and Privacy Notice\" ----";
 		System.out.println(msg);
-		super.waitElement(cadastroPage.getByCheckBoxConcordoTermos(), 5L);
+		super.waitElementToBeClickable(cadastroPage.getByCheckBoxConcordoTermos(), 10);
 		super.browser.findElement(this.cadastroPage.getByCheckBoxConcordoTermos()).click();
 		this.configEvidencia.gerarScreenshot(super.browser);
 	}
@@ -131,7 +131,7 @@ public class CadastroLogic extends WebDriverConfig{
 	public void clicoBtnRegistro() {
 		final String msg = "\t\t\tLogs: ---- Clico no botão \"Register\" ----";
 		System.out.println(msg);
-		super.waitElement(cadastroPage.getByBtnRegistrar(), 5L);
+		super.waitElementToBeClickable(cadastroPage.getByBtnRegistrar(), 10);
 		super.browser.findElement(this.cadastroPage.getByBtnRegistrar()).click();
 		this.configEvidencia.gerarScreenshot(super.browser);
 	}
@@ -150,5 +150,7 @@ public class CadastroLogic extends WebDriverConfig{
 		return super.browser.getCurrentUrl().equals(CadastroPage.URL_HOME) && 
 				super.browser.findElement(this.cadastroPage.getByNomeUsuario()).getText().equals(CadastroPage.NOME_USUARIO);
 	}
+	
+	
 	
 }

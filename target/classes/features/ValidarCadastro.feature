@@ -1,5 +1,5 @@
 @ValidarCadastro
-Feature: Validar Cadastro
+Feature: Cadastro
 	
 	#PWK = Projeto Web Keeggo
 	@PWK_0001 

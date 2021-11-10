@@ -1,4 +1,4 @@
-package br.com.keeggo.projectkeeggo.step;
+package br.com.keeggo.projectkeeggo.step.cadastro;
 
 import static org.junit.Assert.assertTrue;
 
@@ -9,6 +9,7 @@ import br.com.keeggo.projectkeeggo.config.ConfigEvidencia;
 import br.com.keeggo.projectkeeggo.config.ConsoleColors;
 import br.com.keeggo.projectkeeggo.logic.CadastroLogic;
 import br.com.keeggo.projectkeeggo.logic.HomeLogic;
+import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.And;
@@ -20,22 +21,22 @@ public class CadastroStep {
 	private HomeLogic homeLogic;
 	private CadastroLogic cadastroLogic;
 	
-	
 	@Before
 	public void setup(Scenario scenario) {
 		ConfigEvidencia.nameFile = scenario.getName();
 		this.homeLogic = new HomeLogic();
 	}
+
 	
-//	@After
-//	public void after() {
-//		this.cadastroLogic.fecharBrowser();
-//	}
+	@After
+	public void after() {
+		this.cadastroLogic.fecharBrowser();
+	}
 	
 	@Given("home clique btn para redicionar para login")
 	public void click_btn_redireciona_login() {
 		String initTestTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm"));
-		System.out.println(ConsoleColors.YELLOW  + "\t\t\tLogs: ---- Teste Iniciado na data de  "+ initTestTime +" ----");
+		System.out.println(ConsoleColors.GREEN  + "\t\t\tLogs: ---- Teste Iniciado na data de  "+ initTestTime +" ----");
 		this.homeLogic.clickBtnRedirecionarLogin();
 		
 	}
@@ -73,13 +74,16 @@ public class CadastroStep {
 	
 	@Then("valido cadastro")
 	public void validar_cadastro() {
-		if (this.cadastroLogic.validarCadastro()) {
-			System.out.println(ConsoleColors.GREEN + "\t\t\tLogs: ---- Teste Passou ----");
-			assertTrue(this.cadastroLogic.validarCadastro());
+		boolean testeValido = this.cadastroLogic.validarCadastro();
+		if (testeValido) {
+			System.out.println(ConsoleColors.GREEN + "\t\t\t\tLogs: ---- Teste Passou ----");
+			assertTrue(testeValido);
 		} else {
-			System.out.println(ConsoleColors.RED + "\t\t\tLogs: ---- Teste Falhou ----");
+			System.out.println(ConsoleColors.RED + "\t\t\t\tLogs: ---- Teste Falhou ----");
 			assertTrue(false);
 		}
+		
+		
 
 	}	
 }

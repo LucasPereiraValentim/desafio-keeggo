@@ -37,7 +37,7 @@ public class ConfigEvidencia {
 				"C:\\Users\\lucas.costa\\Documents\\workspace-spring-tool-suite-4-4.12.0.RELEASE\\project-keeggo\\evidences\\"
 						+ this.dataEvidence);
 		file.mkdirs();
-		File filePdf = new File(file.getAbsolutePath() + File.separator + nameFile.replace(" ", "_") + ".pdf");
+		File filePdf = new File(file.getAbsolutePath() + File.separator + nameFile.replace(" ", "_").toLowerCase() + ".pdf");
 		try {
 			this.criarPdf(filePdf);
 		} catch (Exception e) {
@@ -106,11 +106,11 @@ public class ConfigEvidencia {
 			cont++;
 
 			FileUtils.copyFile(photo,
-					new File("C:\\Users\\lucas.costa\\Documents\\evidences-images//" + cont + ".png"));
+					new File("C:\\Users\\lucas.costa\\Documents\\evidences-images\\" + cont + ".png"));
 
 			Image fileName = Image.getInstance("C:\\Users\\lucas.costa\\Documents\\evidences-images\\" + cont + ".png");
 			
-			fileName.scaleAbsolute(200f, 200f);
+			fileName.scaleAbsolute(400f, 400f);
 
 			doc.add(fileName);
 		} catch (Exception e) {

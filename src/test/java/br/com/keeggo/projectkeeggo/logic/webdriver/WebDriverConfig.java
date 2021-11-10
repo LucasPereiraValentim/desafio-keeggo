@@ -1,39 +1,31 @@
 package br.com.keeggo.projectkeeggo.logic.webdriver;
 
-import java.time.Duration;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import br.com.keeggo.projectkeeggo.config.ConfigEvidencia;
+import br.com.keeggo.projectkeeggo.page.CadastroPage;
 
 public class WebDriverConfig {
 	
 	protected WebDriver browser;
 	
-//	private ConfigEvidencia configEvidencia;
+	protected WebDriverWait wait;
 	
-	public WebDriverConfig(WebDriver browser) {
+	protected WebDriverConfig(WebDriver browser) {
 		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
-		if (browser == null) {
+		if (browser == null ) {
 			this.browser = new ChromeDriver();
-			this.browser.navigate().to("https://www.advantageonlineshopping.com/#/");
+			this.browser.navigate().to(CadastroPage.URL_HOME);
 		} else {
 			this.browser = browser;
-		}
-		
-	}
+		}	
+}
 	
-	protected void waitElement(By element, long timeOutInSeconds) {
-		WebDriverWait wait = new WebDriverWait(this.browser, Duration.ofSeconds(timeOutInSeconds));
-		wait.until(ExpectedConditions.elementToBeClickable(element));
-	}
-	
-	protected void waitElementToBeClickable(By element, long timeOutInSeconds) {
-		WebDriverWait wait = new WebDriverWait(this.browser, Duration.ofSeconds(timeOutInSeconds));
+	public void waitElementToBeClickable(By element, long timeOutInSeconds) {
+		this.wait = new WebDriverWait(browser, timeOutInSeconds);
 		wait.until(ExpectedConditions.elementToBeClickable(element));
 	}
 	
