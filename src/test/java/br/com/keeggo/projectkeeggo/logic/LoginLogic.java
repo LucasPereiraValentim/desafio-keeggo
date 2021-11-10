@@ -21,6 +21,20 @@ public class LoginLogic extends WebDriverConfig{
 	}
 	
 	
+	public ProdutoLogic selecionarCategoria() {
+		final String msg = ConsoleColors.YELLOW + "\t\t\t\tLogs: ---- Clico em um categoria de produto ----";
+		System.out.println(msg);
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		super.browser.findElement(this.loginPage.getByCategoria()).click();
+		return new ProdutoLogic(super.browser); 
+	}
+	
+	
 	public boolean validarLogin() {
 		final String msg = "\t\t\tLogs: ---- Valido Login ----" + ConsoleColors.RESET;
 		System.out.println(msg);

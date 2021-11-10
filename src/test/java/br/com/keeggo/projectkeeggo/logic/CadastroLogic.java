@@ -48,7 +48,7 @@ public class CadastroLogic extends WebDriverConfig{
 		final String msg = "\t\t\tLogs: ---- Preencho o campo \"Confirm password\" ----";
 		System.out.println(msg);
 		super.waitElementToBeClickable(cadastroPage.getByInputSenhaConfirmacao(), 10);
-		super.browser.findElement(this.cadastroPage.getByInputSenhaConfirmacao()).sendKeys("#Pp82369785");
+		super.browser.findElement(this.cadastroPage.getByInputSenhaConfirmacao()).sendKeys(CadastroPage.SENHA);
 		this.configEvidencia.gerarScreenshot(super.browser);
 	}
 	

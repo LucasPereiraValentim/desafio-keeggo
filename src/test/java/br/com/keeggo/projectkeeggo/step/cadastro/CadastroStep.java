@@ -35,8 +35,8 @@ public class CadastroStep {
 	
 	@Given("home clique btn para redicionar para login")
 	public void click_btn_redireciona_login() {
-		String initTestTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm"));
-		System.out.println(ConsoleColors.GREEN  + "\t\t\tLogs: ---- Teste Iniciado na data de  "+ initTestTime +" ----");
+		String initTestTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
+		System.out.println(ConsoleColors.GREEN  + "\t\t\tLogs: ---- Teste Iniciado na data de "+ initTestTime +" ----");
 		this.homeLogic.clickBtnRedirecionarLogin();
 		
 	}
@@ -76,10 +76,10 @@ public class CadastroStep {
 	public void validar_cadastro() {
 		boolean testeValido = this.cadastroLogic.validarCadastro();
 		if (testeValido) {
-			System.out.println(ConsoleColors.GREEN + "\t\t\t\tLogs: ---- Teste Passou ----");
+			System.out.println(ConsoleColors.GREEN + "\t\t\tLogs: ------------ TESTE PASSOU ------------");
 			assertTrue(testeValido);
 		} else {
-			System.out.println(ConsoleColors.RED + "\t\t\t\tLogs: ---- Teste Falhou ----");
+			System.out.println(ConsoleColors.RED + "\t\t\tLogs: ------------ TESTE FALHOU ------------");
 			assertTrue(false);
 		}
 		

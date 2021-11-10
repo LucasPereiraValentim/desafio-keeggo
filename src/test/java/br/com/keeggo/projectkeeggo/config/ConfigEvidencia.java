@@ -56,7 +56,7 @@ public class ConfigEvidencia {
 
 	public Document addCabecalhoPdf(Document doc) throws DocumentException {
 
-		String initTestTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy hh:mm"));
+		String initTestTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
 
 		Font fontCabecalho = new Font(Font.FontFamily.TIMES_ROMAN, 14, Font.NORMAL);
 

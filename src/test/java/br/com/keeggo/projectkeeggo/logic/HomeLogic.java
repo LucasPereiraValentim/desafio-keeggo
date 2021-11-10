@@ -72,8 +72,8 @@ public class HomeLogic extends WebDriverConfig {
 	public LoginLogic clickBtnRealizarLogin() {
 		final String msg = "\t\t\tLogs: ---- Clico no botão \"SIGN IN\"----";
 		System.out.println(msg);
+		super.waitElementToBeClickable(this.loginPage.getByBtnSignIn(), 20);
 		this.configEvidencia.gerarScreenshot(super.browser);
-		super.waitElementToBeClickable(this.loginPage.getByBtnSignIn(), 10);
 		super.browser.findElement(this.loginPage.getByBtnSignIn()).click();	
 		return new LoginLogic(super.browser);
 	}
