@@ -8,15 +8,18 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import br.com.keeggo.projectkeeggo.config.ConfigEvidencia;
+
 public class WebDriverConfig {
 	
 	protected WebDriver browser;
+	
+//	private ConfigEvidencia configEvidencia;
 	
 	public WebDriverConfig(WebDriver browser) {
 		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
 		if (browser == null) {
 			this.browser = new ChromeDriver();
-			this.browser.manage().timeouts().getPageLoadTimeout().getSeconds();
 			this.browser.navigate().to("https://www.advantageonlineshopping.com/#/");
 		} else {
 			this.browser = browser;

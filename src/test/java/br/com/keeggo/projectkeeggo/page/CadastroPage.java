@@ -50,7 +50,7 @@ public class CadastroPage {
 	
 	public static final String URL_HOME = "https://www.advantageonlineshopping.com/#/";
 	
-	public static String NOME_USUARIO = "Ronado07";
+	public static String NOME_USUARIO = "JoaoJorge ";
 	
 	public By getByInputNomeDeUsuario() {
 		return byInputNomeDeUsuario;
