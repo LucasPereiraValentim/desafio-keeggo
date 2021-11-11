@@ -26,11 +26,11 @@ public class HomeLogic extends WebDriverConfig {
 	public void clickBtnRedirecionarLogin() {
 		final String msg = ConsoleColors.YELLOW + "\t\t\t\tLogs: ---- Clico no ícone de usuário ----";
 		System.out.println(msg);
-		super.waitElementToBeClickable(this.homePage.getByRedirecionaLogin(), 30);
+		super.waitElementToBeClickable(this.homePage.getByRedirecionaLogin(), 50);
 		this.configEvidencia.gerarScreenshot(super.browser);
 		super.browser.findElement(homePage.getByRedirecionaLogin()).click();
 		try {
-			Thread.sleep(2000);
+			Thread.sleep(10000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -44,6 +44,7 @@ public class HomeLogic extends WebDriverConfig {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+		super.waitElementToBeClickable(this.loginPage.getByBtnCriarNovousuario(), 30);
 		this.configEvidencia.gerarScreenshot(super.browser);
 		super.browser.findElement(this.loginPage.getByBtnCriarNovousuario()).click();
 		return new CadastroLogic(super.browser);
@@ -54,7 +55,7 @@ public class HomeLogic extends WebDriverConfig {
 		final String msg = "\t\t\tLogs: ---- Preencho o campo \"Usermame\"----";
 		System.out.println(msg);
 		this.configEvidencia.gerarScreenshot(super.browser);
-		super.waitElementToBeClickable(this.loginPage.getByInputUserName(), 10);
+		super.waitElementToBeClickable(this.loginPage.getByInputUserName(), 50);
 		super.browser.findElement(this.loginPage.getByInputUserName()).sendKeys(CadastroPage.NOME_USUARIO);
 		
 	}
@@ -64,7 +65,7 @@ public class HomeLogic extends WebDriverConfig {
 		final String msg = "\t\t\tLogs: ---- Preencho o campo \"Password\"----";
 		System.out.println(msg);
 		this.configEvidencia.gerarScreenshot(super.browser);
-		super.waitElementToBeClickable(this.loginPage.getByInputPassWord(), 10);
+		super.waitElementToBeClickable(this.loginPage.getByInputPassWord(), 50);
 		super.browser.findElement(this.loginPage.getByInputPassWord()).sendKeys(CadastroPage.SENHA);
 	}
 	
@@ -72,7 +73,7 @@ public class HomeLogic extends WebDriverConfig {
 	public LoginLogic clickBtnRealizarLogin() {
 		final String msg = "\t\t\tLogs: ---- Clico no botão \"SIGN IN\"----";
 		System.out.println(msg);
-		super.waitElementToBeClickable(this.loginPage.getByBtnSignIn(), 20);
+		super.waitElementToBeClickable(this.loginPage.getByBtnSignIn(), 50);
 		this.configEvidencia.gerarScreenshot(super.browser);
 		super.browser.findElement(this.loginPage.getByBtnSignIn()).click();	
 		return new LoginLogic(super.browser);

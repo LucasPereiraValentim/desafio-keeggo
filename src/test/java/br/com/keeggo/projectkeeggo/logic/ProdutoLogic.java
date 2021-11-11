@@ -21,7 +21,7 @@ public class ProdutoLogic extends WebDriverConfig{
 	public void selecionarProduto() {
 		final String msg = "\t\t\tLogs: ---- Seleciono um produto ----";
 		System.out.println(msg);
-		super.waitElementToBeClickable(this.produtoPage.getByProduto(), 5);
+		super.waitElementToBeClickable(this.produtoPage.getByProduto(), 50);
 		this.configEvidencia.gerarScreenshot(super.browser);
 		super.browser.findElement(this.produtoPage.getByProduto()).click();
 	}
@@ -29,7 +29,7 @@ public class ProdutoLogic extends WebDriverConfig{
 	public void addProdutoCarrinho() {
 		final String msg = "\t\t\tLogs: ---- Adiciono um produto ao carrinho ----";
 		System.out.println(msg);
-		super.waitElementToBeClickable(this.produtoPage.getByAddCarrinho(), 5);
+		super.waitElementToBeClickable(this.produtoPage.getByAddCarrinho(), 50);
 		this.configEvidencia.gerarScreenshot(super.browser);
 		super.browser.findElement(this.produtoPage.getByAddCarrinho()).click();
 	}
