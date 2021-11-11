@@ -31,7 +31,8 @@ public class ConfigEvidencia {
 	public static int cont = 0;
 	
 	private String dataEvidence = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyy"));
-
+	
+	// Criação de arquivo pdf
 	public void configuracoesEvidences() {
 		File file = new File(
 				"C:\\Users\\lucas.costa\\Documents\\workspace-spring-tool-suite-4-4.12.0.RELEASE\\project-keeggo\\evidences\\"
@@ -53,7 +54,9 @@ public class ConfigEvidencia {
 		doc = addCabecalhoPdf(doc);
 
 	}
-
+	
+	
+	// Adiciona cabeçalho
 	public Document addCabecalhoPdf(Document doc) throws DocumentException {
 
 		String initTestTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
@@ -97,7 +100,7 @@ public class ConfigEvidencia {
 	}
 
 	
-
+	// Tira screenshot de todas pages por qual o teste passa
 	public void gerarScreenshot(WebDriver browser) {
 		try {
 			TakesScreenshot ts = (TakesScreenshot) browser;

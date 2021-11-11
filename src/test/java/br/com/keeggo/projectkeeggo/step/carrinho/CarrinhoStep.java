@@ -45,7 +45,7 @@ public class CarrinhoStep{
 		String initTestTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
 		System.out.println(ConsoleColors.GREEN  + "\t\tLogs: ---- Teste no cenário "
 				+"\""+ ConfigEvidencia.nameFile + "\"" + " Iniciado na data de "+ initTestTime +" ----");
-		this.homeLogic.clickBtnRedirecionarLogin();
+		this.homeLogic.clickIconeAbrirPopUpLogin();
 		
 	}
 	

@@ -18,12 +18,12 @@ public class CarrinhoLogic extends WebDriverConfig{
 		this.configEvidencia = new ConfigEvidencia();
 	}
 	
-	
+	//Verifica se encontra os elementos para validar
 	public boolean isAddCarrinho() {
 			final String msg = "\t\t\tLogs: ---- Valido Carrinho ----";
 			System.out.println(msg);
 			try {
-				Thread.sleep(3000);
+				Thread.sleep(5000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -36,7 +36,7 @@ public class CarrinhoLogic extends WebDriverConfig{
 		
 	}
 	
-	
+	// Botão para remover produto do carrinho de compras
 	public void clickBtnRemoveProduto() {
 		final String msg = "\t\t\tLogs: ---- Clico em \"Remove\" para remover produto do carrinho de compras ----";
 		System.out.println(msg);
@@ -45,12 +45,12 @@ public class CarrinhoLogic extends WebDriverConfig{
 		super.browser.findElement(this.carrinhoPage.getByBtnRemove()).click();
 	}
 	
-	
+	// Verifica se encontra os elementos para validar
 	public boolean isRemoveCarrinho() {
 		final String msg = "\t\t\tLogs: ---- Valido Carrinho ----";
 		System.out.println(msg);
 		try {
-			Thread.sleep(3000);
+			Thread.sleep(5000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

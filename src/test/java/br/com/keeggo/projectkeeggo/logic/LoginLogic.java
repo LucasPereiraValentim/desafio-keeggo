@@ -20,17 +20,21 @@ public class LoginLogic extends WebDriverConfig{
 		this.configEvidencia = new ConfigEvidencia();
 	}
 	
-	
+	//Seleciona uma categoria e retorna o WebDriver em execução
 	public ProdutoLogic selecionarCategoria() {
 		final String msg = ConsoleColors.YELLOW + "\t\t\t\tLogs: ---- Clico em um categoria de produto ----";
 		System.out.println(msg);
-		super.waitElementToBeClickable(this.loginPage.getByBtnCriarNovousuario(), 50);
+		try {
+			Thread.sleep(6000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		this.configEvidencia.gerarScreenshot(super.browser);
 		super.browser.findElement(this.loginPage.getByCategoria()).click();
 		return new ProdutoLogic(super.browser); 
 	}
 	
-	
+	// Verifica se encontra os elementos para validar
 	public boolean validarLogin() {
 		final String msg = "\t\t\tLogs: ---- Valido Login ----" + ConsoleColors.RESET;
 		System.out.println(msg);
@@ -46,11 +50,15 @@ public class LoginLogic extends WebDriverConfig{
 	}
 	
 	
-	
+	// Clica no Icone de carrinho para adicionar um produto e retorna o WebDriver em execução
 	public CarrinhoLogic clicarIconeCarrinho() { 
 		final String msg = "\t\t\tLogs: ---- Clico no ícone de carrinho ----";
 		System.out.println(msg);
-		super.waitElementToBeClickable(this.loginPage.getByIconeCarrinho(), 30);
+		try {
+			Thread.sleep(6000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		this.configEvidencia.gerarScreenshot(super.browser);
 		super.browser.findElement(this.loginPage.getByIconeCarrinho()).click();
 		return new CarrinhoLogic(super.browser);
