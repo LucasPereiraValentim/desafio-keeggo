@@ -16,6 +16,8 @@ public class LoginPage {
 	
 	private final By byCategoria = By.xpath("/html/body/div[3]/section/article[1]/div[2]/div[2]/div[3]");
 	
+	private final By byIconeCarrinho = By.xpath("/html/body/header/nav/ul/li[2]/a");
+	
 	public By getByNomeUsuario() {
 		return byNomeUsuario;
 	}
@@ -40,4 +42,7 @@ public class LoginPage {
 		return byCategoria;
 	}
 	
+	public By getByIconeCarrinho() {
+		return byIconeCarrinho;
+	}
 }

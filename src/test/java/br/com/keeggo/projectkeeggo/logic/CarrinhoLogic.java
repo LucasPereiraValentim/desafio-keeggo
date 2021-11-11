@@ -35,5 +35,31 @@ public class CarrinhoLogic extends WebDriverConfig{
 			return qtdItensCarrinho >= 1;
 		
 	}
+	
+	
+	public void clickBtnRemoveProduto() {
+		final String msg = "\t\t\tLogs: ---- Clico em \"Remove\" para remover produto do carrinho de compras ----";
+		System.out.println(msg);
+		super.waitElementToBeClickable(this.carrinhoPage.getByBtnRemove(), 30);
+		this.configEvidencia.gerarScreenshot(super.browser);
+		super.browser.findElement(this.carrinhoPage.getByBtnRemove()).click();
+	}
+	
+	
+	public boolean isRemoveCarrinho() {
+		final String msg = "\t\t\tLogs: ---- Valido Carrinho ----";
+		System.out.println(msg);
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		this.configEvidencia.gerarScreenshot(super.browser);
+		this.configEvidencia.fecharPdf();
+		return super.browser.findElement(this.carrinhoPage.getBtMsgCarrinho()).getText().equals(CarrinhoPage.MSG_CARRINHO);
+	
+}
+	
+	
 
 }

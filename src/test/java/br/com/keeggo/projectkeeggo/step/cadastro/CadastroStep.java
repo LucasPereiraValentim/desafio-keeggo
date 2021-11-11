@@ -84,8 +84,6 @@ public class CadastroStep {
 			System.out.println(ConsoleColors.RED + "\t\t\t\tLogs: ############ TESTE FALHOU ############");
 			assertTrue(false);
 		}
-		
-		
-
 	}	
+	
 }

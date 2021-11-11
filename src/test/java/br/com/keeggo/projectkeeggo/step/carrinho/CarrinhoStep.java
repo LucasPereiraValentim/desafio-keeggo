@@ -1,4 +1,4 @@
-package br.com.keeggo.projectkeeggo.step.adicionarcarrinho;
+package br.com.keeggo.projectkeeggo.step.carrinho;
 
 import static org.junit.Assert.assertTrue;
 
@@ -19,7 +19,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class AdicionarAoCarrinhoStep{
+public class CarrinhoStep{
 	
 	private HomeLogic homeLogic;
 	
@@ -92,4 +92,29 @@ public class AdicionarAoCarrinhoStep{
 			assertTrue(false);
 		}
 	}
+	
+	
+	@When("clico no icone de carrinho")
+	public void click_icone_carrinho() {
+		this.carrinhoLogic = this.loginLogic.clicarIconeCarrinho();
+	}
+	
+	
+	@And("clico em remover produto")
+	public void click_remove_produto() {
+		this.carrinhoLogic.clickBtnRemoveProduto();
+	}
+	
+	@Then("valido se foi removido")
+	public void validar_remove_produto() {
+		boolean testeValido = this.carrinhoLogic.isRemoveCarrinho();
+		if (testeValido) {
+			System.out.println(ConsoleColors.GREEN + "\t\t\t\tLogs: ############ TESTE PASSOU ############");
+			assertTrue(testeValido);
+		} else {
+			System.out.println(ConsoleColors.RED + "\t\t\t\tLogs: ############ TESTE FALHOU ############");
+			assertTrue(false);
+		}
+	}
+	
 }
