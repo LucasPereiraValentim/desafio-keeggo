@@ -79,7 +79,7 @@ public class ConfigEvidencia {
 		PdfPCell nameTester = new PdfPCell(new Paragraph(executadorTeste, fontCabecalho));
 		PdfPCell infoDataHora = new PdfPCell(new Paragraph("Data", fontCabecalho));
 		PdfPCell dataHora = new PdfPCell(new Paragraph(initTestTime, fontCabecalho));
-		PdfPCell infoDescricao = new PdfPCell(new Paragraph("Descri", fontCabecalho));
+		PdfPCell infoDescricao = new PdfPCell(new Paragraph("Cenário", fontCabecalho));
 		PdfPCell nameDescricao = new PdfPCell(new Paragraph(nameFile, fontCabecalho));
 
 		tableHeader.addCell(infoProjeto);

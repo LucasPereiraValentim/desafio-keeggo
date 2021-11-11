@@ -40,10 +40,11 @@ public class AdicionarAoCarrinhoStep{
 		this.homeLogic.fecharBrowser();
 	}
 	
-	@Given("home clique no icone de login redirecionar")
+	@Given("home clique no icone de login")
 	public void click_btn_redireciona_login() {
 		String initTestTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
-		System.out.println(ConsoleColors.GREEN  + "\t\t\tLogs: ---- Teste Iniciado na data de "+ initTestTime +" ----");
+		System.out.println(ConsoleColors.GREEN  + "\t\tLogs: ---- Teste no cenário "
+				+"\""+ ConfigEvidencia.nameFile + "\"" + " Iniciado na data de "+ initTestTime +" ----");
 		this.homeLogic.clickBtnRedirecionarLogin();
 		
 	}
@@ -60,12 +61,12 @@ public class AdicionarAoCarrinhoStep{
 	}
 	
 	
-	@Then("seleciono uma categoria")
+	@When("seleciono uma categoria")
 	public void seleciono_categoria_de_produtos() {
 		this.produtoLogic = this.loginLogic.selecionarCategoria();
 	}
 	
-	@Given("lista de produto selecine um produto")
+	@And("seleciono um produto")
 	public void selecione_um_produto() {
 		this.produtoLogic.selecionarProduto();
 	}
@@ -84,10 +85,10 @@ public class AdicionarAoCarrinhoStep{
 	public void validar_add_carrinho() {
 		boolean testeValido = this.carrinhoLogic.isAddCarrinho();
 		if (testeValido) {
-			System.out.println(ConsoleColors.GREEN + "\t\t\tLogs: ------------ TESTE PASSOU ------------");
+			System.out.println(ConsoleColors.GREEN + "\t\t\t\tLogs: ############ TESTE PASSOU ############");
 			assertTrue(testeValido);
 		} else {
-			System.out.println(ConsoleColors.RED + "\t\t\tLogs: ------------ TESTE FALHOU ------------");
+			System.out.println(ConsoleColors.RED + "\t\t\t\tLogs: ############ TESTE FALHOU ############");
 			assertTrue(false);
 		}
 	}

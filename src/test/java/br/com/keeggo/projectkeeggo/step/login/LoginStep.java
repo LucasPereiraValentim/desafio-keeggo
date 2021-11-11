@@ -34,10 +34,11 @@ public class LoginStep {
 		this.homeLogic.fecharBrowser();
 	}
 	
-	@Given("home clique no icone de login redirecionar")
+	@Given("home clique no icone de login")
 	public void click_btn_redireciona_login() {
 		String initTestTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
-		System.out.println(ConsoleColors.GREEN  + "\t\t\tLogs: ---- Teste Iniciado na data de "+ initTestTime +" ----");
+		System.out.println(ConsoleColors.GREEN  + "\t\tLogs: ---- Teste no cenário "
+				+"\""+ ConfigEvidencia.nameFile + "\"" + " Iniciado na data de "+ initTestTime +" ----");
 		this.homeLogic.clickBtnRedirecionarLogin();
 		
 	}
@@ -58,10 +59,10 @@ public class LoginStep {
 	public void valido_login() {
 		boolean testeValido = this.loginLogic.validarLogin();
 		if (testeValido) {
-			System.out.println(ConsoleColors.GREEN + "\t\t\tLogs: ------------ TESTE PASSOU ------------");
+			System.out.println(ConsoleColors.GREEN + "\t\t\t\tLogs: ############ TESTE PASSOU ############");
 			assertTrue(testeValido);
 		} else {
-			System.out.println(ConsoleColors.RED + "\t\t\tLogs: ------------ TESTE FALHOU ------------");
+			System.out.println(ConsoleColors.RED + "\t\t\t\tLogs: ############ TESTE FALHOU ############");
 			assertTrue(false);
 		}
 	}

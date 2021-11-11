@@ -32,7 +32,6 @@ public class CarrinhoLogic extends WebDriverConfig{
 			String qtdItensNumber = super.browser.findElement(this.carrinhoPage.getByItensCarrinho()).getText().substring(0, 1)
 					.replace(" ", "");
 			int qtdItensCarrinho = Integer.valueOf(qtdItensNumber);
-			System.out.println(qtdItensCarrinho);
 			return qtdItensCarrinho >= 1;
 		
 	}
