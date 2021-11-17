@@ -9,6 +9,7 @@ import br.com.keeggo.projectkeeggo.config.ConfigEvidencia;
 import br.com.keeggo.projectkeeggo.config.ConsoleColors;
 import br.com.keeggo.projectkeeggo.logic.CadastroLogic;
 import br.com.keeggo.projectkeeggo.logic.HomeLogic;
+import br.com.keeggo.projectkeeggo.logic.webdriver.WebDriverConfig;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -26,12 +27,13 @@ public class CadastroStep {
 	public void setup(Scenario scenario) {
 		ConfigEvidencia.nameFile = scenario.getName();
 		this.homeLogic = new HomeLogic();
+		this.cadastroLogic = new CadastroLogic();
 	}
 
 	
 	@After
 	public void after() {
-		this.cadastroLogic.fecharBrowser();
+		WebDriverConfig.browser.close();
 	}
 	
 	@Given("home clique no icone de login")
@@ -45,7 +47,7 @@ public class CadastroStep {
 
 	@When("clico btn para redirecionar para criar novo usuario")
 	public void click_btn_redirecionar_cadastro() {		
-		this.cadastroLogic = this.homeLogic.clickBtnRedirecionarParaCadastro(); 
+		this.homeLogic.clickBtnRedirecionarParaCadastro(); 
 	}
 	
 	@And("preencho os campos de cadastro")

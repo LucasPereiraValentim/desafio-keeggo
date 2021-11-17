@@ -1,5 +1,7 @@
 package br.com.keeggo.projectkeeggo.logic;
 
+import org.openqa.selenium.chrome.ChromeDriver;
+
 import br.com.keeggo.projectkeeggo.config.ConfigEvidencia;
 import br.com.keeggo.projectkeeggo.config.ConsoleColors;
 import br.com.keeggo.projectkeeggo.logic.webdriver.WebDriverConfig;
@@ -7,7 +9,7 @@ import br.com.keeggo.projectkeeggo.page.CadastroPage;
 import br.com.keeggo.projectkeeggo.page.HomePage;
 import br.com.keeggo.projectkeeggo.page.LoginPage;
 
-public class HomeLogic extends WebDriverConfig {
+public class HomeLogic {
 
 	private HomePage homePage;
 
@@ -16,7 +18,9 @@ public class HomeLogic extends WebDriverConfig {
 	private ConfigEvidencia configEvidencia;
 	
 	public HomeLogic() {
-		super(null);
+		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
+		WebDriverConfig.browser = new ChromeDriver();
+		WebDriverConfig.browser.navigate().to(CadastroPage.URL_HOME);
 		this.homePage = new HomePage();
 		this.loginPage = new LoginPage();
 		this.configEvidencia = new ConfigEvidencia();
@@ -27,13 +31,13 @@ public class HomeLogic extends WebDriverConfig {
 	public void clickIconeAbrirPopUpLogin() {
 		final String msg = ConsoleColors.YELLOW + "\t\t\t\tLogs: ---- Clico no ícone de usuário ----";
 		System.out.println(msg);
-		super.waitElementToBeClickable(this.homePage.getByRedirecionaLogin(), 30);
-		this.configEvidencia.gerarScreenshot(super.browser);
-		super.browser.findElement(homePage.getByRedirecionaLogin()).click();
+		WebDriverConfig.waitElementToBeClickable(this.homePage.getByRedirecionaLogin(), 30);
+		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
+		WebDriverConfig.browser.findElement(homePage.getByRedirecionaLogin()).click();
 	}
 
 	// Clica no botão para redirecionar para tela de cadastro e retorna o WebDriver em execução
-	public CadastroLogic clickBtnRedirecionarParaCadastro() {
+	public void clickBtnRedirecionarParaCadastro() {
 		final String msg = "\t\t\tLogs: ---- Clico no botão \"CREATE NEW ACCOUNT\"----";
 		System.out.println(msg);
 		try {
@@ -41,19 +45,18 @@ public class HomeLogic extends WebDriverConfig {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		super.waitElementToBeClickable(this.loginPage.getByBtnCriarNovousuario(), 40);
-		this.configEvidencia.gerarScreenshot(super.browser);
-		super.browser.findElement(this.loginPage.getByBtnCriarNovousuario()).click();
-		return new CadastroLogic(super.browser);
+		WebDriverConfig.waitElementToBeClickable(this.loginPage.getByBtnCriarNovousuario(), 40);
+		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
+		WebDriverConfig.browser.findElement(this.loginPage.getByBtnCriarNovousuario()).click();
 	}
 	
 	// Campo Usuario
 	public void preencherCampoUsuario() {
 		final String msg = "\t\t\tLogs: ---- Preencho o campo \"Usermame\"----";
 		System.out.println(msg);
-		this.configEvidencia.gerarScreenshot(super.browser);
-		super.waitElementToBeClickable(this.loginPage.getByInputUserName(), 40);
-		super.browser.findElement(this.loginPage.getByInputUserName()).sendKeys(CadastroPage.NOME_USUARIO);
+		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
+		WebDriverConfig.waitElementToBeClickable(this.loginPage.getByInputUserName(), 40);
+		WebDriverConfig.browser.findElement(this.loginPage.getByInputUserName()).sendKeys(CadastroPage.NOME_USUARIO);
 		
 	}
 	
@@ -61,19 +64,23 @@ public class HomeLogic extends WebDriverConfig {
 	public void preencherCampoSenha() {
 		final String msg = "\t\t\tLogs: ---- Preencho o campo \"Password\"----";
 		System.out.println(msg);
-		this.configEvidencia.gerarScreenshot(super.browser);
-		super.waitElementToBeClickable(this.loginPage.getByInputPassWord(), 40);
-		super.browser.findElement(this.loginPage.getByInputPassWord()).sendKeys(CadastroPage.SENHA);
+		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
+		WebDriverConfig.waitElementToBeClickable(this.loginPage.getByInputPassWord(), 40);
+		WebDriverConfig.browser.findElement(this.loginPage.getByInputPassWord()).sendKeys(CadastroPage.SENHA);
 	}
 	
 	// Clica no botão de realizar login
-	public LoginLogic clickBtnRealizarLogin() {
+	public void clickBtnRealizarLogin() {
 		final String msg = "\t\t\tLogs: ---- Clico no botão \"SIGN IN\"----";
 		System.out.println(msg);
-		super.waitElementToBeClickable(this.loginPage.getByBtnSignIn(), 40);
-		this.configEvidencia.gerarScreenshot(super.browser);
-		super.browser.findElement(this.loginPage.getByBtnSignIn()).click();	
-		return new LoginLogic(super.browser);
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		WebDriverConfig.waitElementToBeClickable(this.loginPage.getByBtnSignIn(), 40);
+		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
+		WebDriverConfig.browser.findElement(this.loginPage.getByBtnSignIn()).click();	
 	}
 	
 	

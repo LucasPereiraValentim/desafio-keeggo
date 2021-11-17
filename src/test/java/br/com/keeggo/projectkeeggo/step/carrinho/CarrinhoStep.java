@@ -11,6 +11,7 @@ import br.com.keeggo.projectkeeggo.logic.CarrinhoLogic;
 import br.com.keeggo.projectkeeggo.logic.HomeLogic;
 import br.com.keeggo.projectkeeggo.logic.LoginLogic;
 import br.com.keeggo.projectkeeggo.logic.ProdutoLogic;
+import br.com.keeggo.projectkeeggo.logic.webdriver.WebDriverConfig;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -33,11 +34,14 @@ public class CarrinhoStep{
 	public void setup(Scenario scenario) {
 		ConfigEvidencia.nameFile = scenario.getName();
 		this.homeLogic = new HomeLogic();
+		this.loginLogic = new LoginLogic();
+		this.produtoLogic = new ProdutoLogic();
+		this.carrinhoLogic = new CarrinhoLogic();
 	}
 	
 	@After
 	public void after() {
-		this.homeLogic.fecharBrowser();
+		WebDriverConfig.browser.close();
 	}
 	
 	@Given("home clique no icone de login")
@@ -57,13 +61,13 @@ public class CarrinhoStep{
 	
 	@And("clico no btn de logar")
 	public void click_btn_realizar_login() {
-		this.loginLogic = this.homeLogic.clickBtnRealizarLogin();
+		this.homeLogic.clickBtnRealizarLogin();
 	}
 	
 	
 	@When("seleciono uma categoria")
 	public void seleciono_categoria_de_produtos() {
-		this.produtoLogic = this.loginLogic.selecionarCategoria();
+		this.loginLogic.selecionarCategoria();
 	}
 	
 	@And("seleciono um produto")
@@ -78,7 +82,7 @@ public class CarrinhoStep{
 	
 	@And("Clico no botão para ir para o carrinho")
 	public void click_btn_redirecionar_carrinho() {
-		this.carrinhoLogic = this.produtoLogic.clicoBtnIrParaCarrinho();
+		this.produtoLogic.clicoBtnIrParaCarrinho();
 	}
 	
 	@Then("valido se foi adicionado ao carrinho")
@@ -96,7 +100,7 @@ public class CarrinhoStep{
 	
 	@When("clico no icone de carrinho")
 	public void click_icone_carrinho() {
-		this.carrinhoLogic = this.loginLogic.clicarIconeCarrinho();
+		this.loginLogic.clicarIconeCarrinho();
 	}
 	
 	

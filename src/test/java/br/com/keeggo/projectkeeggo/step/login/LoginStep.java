@@ -9,6 +9,7 @@ import br.com.keeggo.projectkeeggo.config.ConfigEvidencia;
 import br.com.keeggo.projectkeeggo.config.ConsoleColors;
 import br.com.keeggo.projectkeeggo.logic.HomeLogic;
 import br.com.keeggo.projectkeeggo.logic.LoginLogic;
+import br.com.keeggo.projectkeeggo.logic.webdriver.WebDriverConfig;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
@@ -26,12 +27,13 @@ public class LoginStep {
 	public void setup(Scenario scenario) {
 		ConfigEvidencia.nameFile = scenario.getName();
 		this.homeLogic = new HomeLogic();
+		this.loginLogic = new LoginLogic();
 	}
 	
 	
 	@After
 	public void after() {
-		this.homeLogic.fecharBrowser();
+		WebDriverConfig.browser.close();
 	}
 	
 	@Given("home clique no icone de login")
@@ -51,7 +53,7 @@ public class LoginStep {
 	
 	@And("clico no btn de logar")
 	public void click_btn_realizar_login() {
-		this.loginLogic = this.homeLogic.clickBtnRealizarLogin();
+		this.homeLogic.clickBtnRealizarLogin();
 	}
 	
 	
