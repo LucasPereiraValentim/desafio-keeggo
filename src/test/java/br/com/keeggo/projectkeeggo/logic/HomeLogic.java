@@ -18,7 +18,7 @@ public class HomeLogic {
 	private ConfigEvidencia configEvidencia;
 	
 	public HomeLogic() {
-		System.setProperty("webdriver.chrome.driver", "drivers/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") +  "/drivers/chromedriver.exe");
 		WebDriverConfig.browser = new ChromeDriver();
 		WebDriverConfig.browser.navigate().to(CadastroPage.URL_HOME);
 		this.homePage = new HomePage();
