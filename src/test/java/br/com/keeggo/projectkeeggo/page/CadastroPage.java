@@ -2,6 +2,8 @@ package br.com.keeggo.projectkeeggo.page;
 
 import org.openqa.selenium.By;
 
+import br.com.keeggo.projectkeeggo.config.UsuarioRandom;
+
 public class CadastroPage {
 	
 	private final By byInputNomeDeUsuario = 
@@ -50,9 +52,16 @@ public class CadastroPage {
 	
 	public static final String URL_HOME = "https://www.advantageonlineshopping.com/#/";
 	
-	public static String NOME_USUARIO = "TonyStark";
+	private UsuarioRandom usuarioRandom;
 	
-	public static String SENHA = "#Pp82369785";
+	public static String senha = "#Pp82369785";
+	
+	public CadastroPage() {
+		this.usuarioRandom = new UsuarioRandom();
+		this.usuarioRandom.gerarNomeDeUsuarioAleatorio();
+		this.usuarioRandom.gravarUserNameFileTxt();
+		this.usuarioRandom.gerarNomeESobrenome();
+	}
 	
 	public By getByInputNomeDeUsuario() {
 		return byInputNomeDeUsuario;

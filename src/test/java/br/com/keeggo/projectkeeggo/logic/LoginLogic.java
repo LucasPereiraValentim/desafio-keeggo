@@ -2,6 +2,7 @@ package br.com.keeggo.projectkeeggo.logic;
 
 import br.com.keeggo.projectkeeggo.config.ConfigEvidencia;
 import br.com.keeggo.projectkeeggo.config.ConsoleColors;
+import br.com.keeggo.projectkeeggo.config.UsuarioRandom;
 import br.com.keeggo.projectkeeggo.logic.webdriver.WebDriverConfig;
 import br.com.keeggo.projectkeeggo.page.CadastroPage;
 import br.com.keeggo.projectkeeggo.page.LoginPage;
@@ -42,7 +43,7 @@ public class LoginLogic {
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
 		this.configEvidencia.fecharPdf();
 		return WebDriverConfig.browser.getCurrentUrl().equals(CadastroPage.URL_HOME) && 
-			WebDriverConfig.browser.findElement(this.loginPage.getByNomeUsuario()).getText().equals(CadastroPage.NOME_USUARIO);
+			WebDriverConfig.browser.findElement(this.loginPage.getByNomeUsuario()).getText().equals(UsuarioRandom.nomeUsuario);
 	}
 	
 	

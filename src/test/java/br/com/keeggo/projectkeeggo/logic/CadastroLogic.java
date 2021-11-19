@@ -4,6 +4,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import br.com.keeggo.projectkeeggo.config.ConfigEvidencia;
 import br.com.keeggo.projectkeeggo.config.ConsoleColors;
+import br.com.keeggo.projectkeeggo.config.UsuarioRandom;
 import br.com.keeggo.projectkeeggo.logic.webdriver.WebDriverConfig;
 import br.com.keeggo.projectkeeggo.page.CadastroPage;
 
@@ -23,7 +24,7 @@ public class CadastroLogic {
 		final String msg = "\t\t\tLogs: ---- Preencho o campo \"Username\" ----";
 		System.out.println(msg);
 		WebDriverConfig.waitElementToBeClickable(cadastroPage.getByInputNomeDeUsuario(), 30);
-		WebDriverConfig.browser.findElement(this.cadastroPage.getByInputNomeDeUsuario()).sendKeys(CadastroPage.NOME_USUARIO);
+		WebDriverConfig.browser.findElement(this.cadastroPage.getByInputNomeDeUsuario()).sendKeys(UsuarioRandom.nomeUsuario);
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
 
 	}
@@ -33,7 +34,7 @@ public class CadastroLogic {
 		final String msg = "\t\t\tLogs: ---- Preencho o campo \"Email\" ----";
 		System.out.println(msg);
 		WebDriverConfig.waitElementToBeClickable(cadastroPage.getByInputEmail(), 30);
-		WebDriverConfig.browser.findElement(this.cadastroPage.getByInputEmail()).sendKeys("tonystark@gmail.com");
+		WebDriverConfig.browser.findElement(this.cadastroPage.getByInputEmail()).sendKeys(UsuarioRandom.email + "@teste.com.br");
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
 	}
 
@@ -42,7 +43,7 @@ public class CadastroLogic {
 		final String msg = "\t\t\tLogs: ---- Preencho o campo \"Password\" ----";
 		System.out.println(msg);
 		WebDriverConfig.waitElementToBeClickable(cadastroPage.getByInputSenha(), 30);
-		WebDriverConfig.browser.findElement(this.cadastroPage.getByInputSenha()).sendKeys(CadastroPage.SENHA);
+		WebDriverConfig.browser.findElement(this.cadastroPage.getByInputSenha()).sendKeys(CadastroPage.senha);
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
 	}
 
@@ -51,7 +52,7 @@ public class CadastroLogic {
 		final String msg = "\t\t\tLogs: ---- Preencho o campo \"Confirm password\" ----";
 		System.out.println(msg);
 		WebDriverConfig.waitElementToBeClickable(cadastroPage.getByInputSenhaConfirmacao(), 30);
-		WebDriverConfig.browser.findElement(this.cadastroPage.getByInputSenhaConfirmacao()).sendKeys(CadastroPage.SENHA);
+		WebDriverConfig.browser.findElement(this.cadastroPage.getByInputSenhaConfirmacao()).sendKeys(CadastroPage.senha);
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
 	}
 
@@ -60,7 +61,7 @@ public class CadastroLogic {
 		final String msg = "\t\t\tLogs: ---- Preencho o campo \"Fist Name\" ----";
 		System.out.println(msg);
 		WebDriverConfig.waitElementToBeClickable(cadastroPage.getByInputPrimeiroNome(), 30);
-		WebDriverConfig.browser.findElement(this.cadastroPage.getByInputPrimeiroNome()).sendKeys("Tony");
+		WebDriverConfig.browser.findElement(this.cadastroPage.getByInputPrimeiroNome()).sendKeys(UsuarioRandom.fistName);
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
 	}
 
@@ -69,7 +70,7 @@ public class CadastroLogic {
 		final String msg = "\t\t\tLogs: ---- Preencho o campo \"Last Name\" ----";
 		System.out.println(msg);
 		WebDriverConfig.waitElementToBeClickable(cadastroPage.getByInputSegundoNome(), 30);
-		WebDriverConfig.browser.findElement(this.cadastroPage.getByInputSegundoNome()).sendKeys("Stark");
+		WebDriverConfig.browser.findElement(this.cadastroPage.getByInputSegundoNome()).sendKeys(UsuarioRandom.lastName);
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
 	}
 
@@ -157,7 +158,7 @@ public class CadastroLogic {
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
 		this.configEvidencia.fecharPdf();
 		return WebDriverConfig.browser.getCurrentUrl().equals(CadastroPage.URL_HOME) && WebDriverConfig.browser
-				.findElement(this.cadastroPage.getByNomeUsuario()).getText().equals(CadastroPage.NOME_USUARIO);
+				.findElement(this.cadastroPage.getByNomeUsuario()).getText().equals(UsuarioRandom.nomeUsuario);
 	}
 
 }

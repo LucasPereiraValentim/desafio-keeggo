@@ -4,6 +4,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import br.com.keeggo.projectkeeggo.config.ConfigEvidencia;
 import br.com.keeggo.projectkeeggo.config.ConsoleColors;
+import br.com.keeggo.projectkeeggo.config.UsuarioRandom;
 import br.com.keeggo.projectkeeggo.logic.webdriver.WebDriverConfig;
 import br.com.keeggo.projectkeeggo.page.CadastroPage;
 import br.com.keeggo.projectkeeggo.page.HomePage;
@@ -54,9 +55,11 @@ public class HomeLogic {
 	public void preencherCampoUsuario() {
 		final String msg = "\t\t\tLogs: ---- Preencho o campo \"Usermame\"----";
 		System.out.println(msg);
+		UsuarioRandom usuarioRandom = new UsuarioRandom();
+		usuarioRandom.lerFileTxt();
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
 		WebDriverConfig.waitElementToBeClickable(this.loginPage.getByInputUserName(), 40);
-		WebDriverConfig.browser.findElement(this.loginPage.getByInputUserName()).sendKeys(CadastroPage.NOME_USUARIO);
+		WebDriverConfig.browser.findElement(this.loginPage.getByInputUserName()).sendKeys(UsuarioRandom.nomeUsuario);
 		
 	}
 	
@@ -66,7 +69,7 @@ public class HomeLogic {
 		System.out.println(msg);
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
 		WebDriverConfig.waitElementToBeClickable(this.loginPage.getByInputPassWord(), 40);
-		WebDriverConfig.browser.findElement(this.loginPage.getByInputPassWord()).sendKeys(CadastroPage.SENHA);
+		WebDriverConfig.browser.findElement(this.loginPage.getByInputPassWord()).sendKeys(CadastroPage.senha);
 	}
 	
 	// Clica no botão de realizar login

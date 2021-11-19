@@ -30,13 +30,10 @@ public class ConfigEvidencia {
 
 	public static int cont = 0;
 	
-	private String dataEvidence = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyy"));
-	
 	// Criação de arquivo pdf
 	public void configuracoesEvidences() {
-		File file = new File(
-				"C:\\Users\\lucas.costa\\Documents\\workspace-spring-tool-suite-4-4.12.0.RELEASE\\project-keeggo\\evidences\\"
-						+ this.dataEvidence);
+		String dataEvidence = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyy"));
+		File file = new File(System.getProperty("user.dir") + "\\evidences\\" + dataEvidence);
 		file.mkdirs();
 		File filePdf = new File(file.getAbsolutePath() + File.separator + nameFile.replace(" ", "_").toLowerCase() + ".pdf");
 		try {
@@ -109,9 +106,9 @@ public class ConfigEvidencia {
 			cont++;
 
 			FileUtils.copyFile(photo,
-					new File("C:\\Users\\lucas.costa\\Documents\\evidences-images\\" + cont + ".png"));
+					new File(System.getProperty("user.dir") + "\\evidences-images\\" + cont + ".png"));
 
-			Image fileName = Image.getInstance("C:\\Users\\lucas.costa\\Documents\\evidences-images\\" + cont + ".png");
+			Image fileName = Image.getInstance(System.getProperty("user.dir") + "\\evidences-images\\" + cont + ".png");
 			
 			fileName.scaleAbsolute(400f, 400f);
 
