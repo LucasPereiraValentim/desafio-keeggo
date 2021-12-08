@@ -17,4 +17,9 @@ public class WebDriverConfig {
 	}
 	
 	
+	public static void waitElementToVisibility(By element, long timeOutInSeconds) {
+		wait = new WebDriverWait(browser, timeOutInSeconds);
+		wait.until(ExpectedConditions.visibilityOfElementLocated(element));
+	}
+	
 }

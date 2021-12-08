@@ -19,9 +19,9 @@ public class ProdutoLogic {
 	public void selecionarProduto() {
 		final String msg = "\t\t\tLogs: ---- Seleciono um produto ----";
 		System.out.println(msg);
-		WebDriverConfig.waitElementToBeClickable(this.produtoPage.getByProduto(), 40);
+		WebDriverConfig.waitElementToBeClickable(this.produtoPage.getBySelecionaProduto(), 40);
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
-		WebDriverConfig.browser.findElement(this.produtoPage.getByProduto()).click();
+		WebDriverConfig.browser.findElement(this.produtoPage.getBySelecionaProduto()).click();
 	}
 	
 	// Adiciona um produto ao carrinho
@@ -43,7 +43,7 @@ public class ProdutoLogic {
 			e.printStackTrace();
 		}
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
-		WebDriverConfig.browser.findElement(this.produtoPage.getByRedirecionarCarrinho()).click();
+		WebDriverConfig.browser.findElement(this.produtoPage.getByBtnCheckoutCarrinho()).click();
 	}
 	
 }

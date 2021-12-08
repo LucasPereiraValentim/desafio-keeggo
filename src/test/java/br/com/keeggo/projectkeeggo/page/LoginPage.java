@@ -2,6 +2,9 @@ package br.com.keeggo.projectkeeggo.page;
 
 import org.openqa.selenium.By;
 
+import lombok.Getter;
+
+@Getter
 public class LoginPage {
 	
 	private final By byBtnCriarNovousuario = By.xpath("/html/body/login-modal/div/div/div[3]/a[2]");
@@ -17,32 +20,5 @@ public class LoginPage {
 	private final By byCategoria = By.xpath("/html/body/div[3]/section/article[1]/div[2]/div[2]/div[3]");
 	
 	private final By byIconeCarrinho = By.xpath("/html/body/header/nav/ul/li[2]/a");
-	
-	public By getByNomeUsuario() {
-		return byNomeUsuario;
-	}
 
-	public By getByBtnSignIn() {
-		return byBtnSignIn;
-	}
-	
-	public By getByInputPassWord() {
-		return byInputPassWord;
-	}
-	
-	public By getByInputUserName() {
-		return byInputUserName;
-	}
-	
-	public By getByBtnCriarNovousuario() {
-		return byBtnCriarNovousuario;
-	}
-	
-	public By getByCategoria() {
-		return byCategoria;
-	}
-	
-	public By getByIconeCarrinho() {
-		return byIconeCarrinho;
-	}
 }

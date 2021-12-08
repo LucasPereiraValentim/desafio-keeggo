@@ -22,11 +22,7 @@ public class LoginLogic {
 	public void selecionarCategoria() {
 		final String msg = ConsoleColors.YELLOW + "\t\t\t\tLogs: ---- Clico em um categoria de produto ----";
 		System.out.println(msg);
-		try {
-			Thread.sleep(6000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		WebDriverConfig.waitElementToBeClickable(this.loginPage.getByCategoria(), 50);
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
 		WebDriverConfig.browser.findElement(this.loginPage.getByCategoria()).click(); 
 	}
@@ -35,15 +31,11 @@ public class LoginLogic {
 	public boolean validarLogin() {
 		final String msg = "\t\t\tLogs: ---- Valido Login ----" + ConsoleColors.RESET;
 		System.out.println(msg);
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		WebDriverConfig.waitElementToVisibility(this.loginPage.getByNomeUsuario(), 50);
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
 		this.configEvidencia.fecharPdf();
 		return WebDriverConfig.browser.getCurrentUrl().equals(CadastroPage.URL_HOME) && 
-			WebDriverConfig.browser.findElement(this.loginPage.getByNomeUsuario()).getText().equals(UsuarioRandom.nomeUsuario);
+		WebDriverConfig.browser.findElement(this.loginPage.getByNomeUsuario()).getText().equals(UsuarioRandom.nomeUsuario);
 	}
 	
 	
@@ -51,11 +43,7 @@ public class LoginLogic {
 	public void clicarIconeCarrinho() { 
 		final String msg = "\t\t\tLogs: ---- Clico no ícone de carrinho ----";
 		System.out.println(msg);
-		try {
-			Thread.sleep(6000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		WebDriverConfig.waitElementToBeClickable(this.loginPage.getByIconeCarrinho(), 50);
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
 		WebDriverConfig.browser.findElement(this.loginPage.getByIconeCarrinho()).click();
 	}

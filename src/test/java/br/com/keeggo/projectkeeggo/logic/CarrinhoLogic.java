@@ -19,11 +19,7 @@ public class CarrinhoLogic {
 	public boolean isAddCarrinho() {
 			final String msg = "\t\t\tLogs: ---- Valido Carrinho ----";
 			System.out.println(msg);
-			try {
-				Thread.sleep(5000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+			WebDriverConfig.waitElementToVisibility(this.carrinhoPage.getByItensCarrinho(), 50);
 			this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
 			this.configEvidencia.fecharPdf();
 			String qtdItensNumber = WebDriverConfig.browser.findElement(this.carrinhoPage.getByItensCarrinho()).getText().substring(0, 1)
@@ -46,11 +42,7 @@ public class CarrinhoLogic {
 	public boolean isRemoveCarrinho() {
 		final String msg = "\t\t\tLogs: ---- Valido Carrinho ----";
 		System.out.println(msg);
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		WebDriverConfig.waitElementToVisibility(this.carrinhoPage.getBtMsgCarrinho(), 50);
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
 		this.configEvidencia.fecharPdf();
 		return WebDriverConfig.browser.findElement(this.carrinhoPage.getBtMsgCarrinho()).getText().equals(CarrinhoPage.MSG_CARRINHO);

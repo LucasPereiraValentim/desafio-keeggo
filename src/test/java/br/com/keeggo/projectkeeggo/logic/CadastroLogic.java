@@ -26,7 +26,6 @@ public class CadastroLogic {
 		WebDriverConfig.waitElementToBeClickable(cadastroPage.getByInputNomeDeUsuario(), 30);
 		WebDriverConfig.browser.findElement(this.cadastroPage.getByInputNomeDeUsuario()).sendKeys(UsuarioRandom.nomeUsuario);
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
-
 	}
 	
 	// campo de e-mail
@@ -51,8 +50,8 @@ public class CadastroLogic {
 	public void preenchoSenhaConfirmacao() {
 		final String msg = "\t\t\tLogs: ---- Preencho o campo \"Confirm password\" ----";
 		System.out.println(msg);
-		WebDriverConfig.waitElementToBeClickable(cadastroPage.getByInputSenhaConfirmacao(), 30);
-		WebDriverConfig.browser.findElement(this.cadastroPage.getByInputSenhaConfirmacao()).sendKeys(CadastroPage.senha);
+		WebDriverConfig.waitElementToBeClickable(cadastroPage.getByInputConfirmacaoSenha(), 30);
+		WebDriverConfig.browser.findElement(this.cadastroPage.getByInputConfirmacaoSenha()).sendKeys(CadastroPage.senha);
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
 	}
 
@@ -87,7 +86,7 @@ public class CadastroLogic {
 	public void SelecionoBrasilSelect() {
 		final String msg = "\t\t\tLogs: ---- Seleciono \"Brazil\" no campo select \"Country\" ----";
 		System.out.println(msg);
-		Select select = new Select(WebDriverConfig.browser.findElement(this.cadastroPage.getSelectPais()));
+		Select select = new Select(WebDriverConfig.browser.findElement(this.cadastroPage.getByXpathSelect()));
 		select.selectByVisibleText("Brazil");
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
 	}

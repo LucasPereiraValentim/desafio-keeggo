@@ -3,7 +3,9 @@ package br.com.keeggo.projectkeeggo.page;
 import org.openqa.selenium.By;
 
 import br.com.keeggo.projectkeeggo.config.UsuarioRandom;
+import lombok.Getter;
 
+@Getter
 public class CadastroPage {
 	
 	private final By byInputNomeDeUsuario = 
@@ -15,7 +17,7 @@ public class CadastroPage {
 	private final By byInputSenha = 
 			By.xpath("//*[@id=\"formCover\"]/div[1]/div[2]/sec-view[1]/div/input");
 	
-	private final By byinputSenhaConfirmacao =
+	private final By byInputConfirmacaoSenha =
 			By.xpath("/html/body/div[3]/section/article/sec-form/div[1]/div[2]/div/div[1]/div[2]/sec-view[2]/div/input");
 	
 	private final By byInputPrimeiroNome = 
@@ -61,68 +63,6 @@ public class CadastroPage {
 		this.usuarioRandom.gerarNomeDeUsuarioAleatorio();
 		this.usuarioRandom.gravarUserNameFileTxt();
 		this.usuarioRandom.gerarNomeESobrenome();
-	}
-	
-	public By getByInputNomeDeUsuario() {
-		return byInputNomeDeUsuario;
-	}
-	
-	public By getByInputEmail() {
-		return byInputEmail;
-	}
-	
-	public By getByInputSenha() {
-		return byInputSenha;
-	}
-	
-	
-	public By getByInputSenhaConfirmacao() {
-		return byinputSenhaConfirmacao;
-	}
-	
-	public By getByInputPrimeiroNome() {
-		return byInputPrimeiroNome;
-	}
-	
-	public By getByInputSegundoNome() {
-		return byInputSegundoNome;
-	}
-	
-	public By getByInputTelefone() {
-		return byInputTelefone;
-	}
-
-	
-	public By getSelectPais() {
-		return byXpathSelect;
-	}
-	
-	public By getByBtnRegistrar() {
-		return byBtnRegistrar;
-	}
-	
-	public By getByCheckBoxConcordoTermos() {
-		return byCheckBoxConcordoTermos;
-	}
-	
-	public By getByInputCep() {
-		return byInputCep;
-	}
-	
-	public By getByInputCidade() {
-		return byInputCidade;
-	}
-	
-	public By getByInputEndereco() {
-		return byInputEndereco;
-	}
-	
-	public By getByInputEstado() {
-		return byInputEstado;
-	}
-
-	public By getByNomeUsuario() {
-		return byNomeUsuario;
 	}
 	
 	

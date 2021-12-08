@@ -39,10 +39,10 @@ public class UsuarioRandom {
 		File file = new File( System.getProperty("user.dir") +
 				"\\name-user");
 		file.mkdirs();
-		File filePdf = new File(file.getAbsolutePath() + File.separator + "userName1.txt");
+		File fileText = new File(file.getAbsolutePath() + File.separator + "userName1.txt");
 		
 		try {
-			BufferedWriter buffWrite = new BufferedWriter(new FileWriter(filePdf));
+			BufferedWriter buffWrite = new BufferedWriter(new FileWriter(fileText));
 			buffWrite.append(nomeUsuario);
 			buffWrite.close();
 		} catch (IOException e) {
@@ -51,9 +51,9 @@ public class UsuarioRandom {
 	}
 	
 	public void lerFileTxt() {
-		File filePdf = new File(System.getProperty("user.dir") + "\\name-user", "userName1.txt");
+		File fileText = new File(System.getProperty("user.dir") + "\\name-user", "userName1.txt");
 		try {
-			BufferedReader buffReader = new BufferedReader(new FileReader(filePdf));
+			BufferedReader buffReader = new BufferedReader(new FileReader(fileText));
 			nomeUsuario = buffReader.readLine();
 			buffReader.close();
 		} catch (IOException e) {
