@@ -1,11 +1,11 @@
 package br.com.keeggo.projectkeeggo.logic;
 
-import br.com.keeggo.projectkeeggo.config.ConfigEvidencia;
 import br.com.keeggo.projectkeeggo.config.ConsoleColors;
-import br.com.keeggo.projectkeeggo.config.UsuarioRandom;
-import br.com.keeggo.projectkeeggo.logic.webdriver.WebDriverConfig;
 import br.com.keeggo.projectkeeggo.page.CadastroPage;
 import br.com.keeggo.projectkeeggo.page.LoginPage;
+import br.com.keeggo.projectkeeggo.utils.ConfigEvidencia;
+import br.com.keeggo.projectkeeggo.utils.UsuarioRandom;
+import br.com.keeggo.projectkeeggo.utils.WebDriverConfig;
 
 public class LoginLogic {
 	

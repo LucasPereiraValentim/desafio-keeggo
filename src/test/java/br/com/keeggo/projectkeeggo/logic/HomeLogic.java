@@ -2,13 +2,13 @@ package br.com.keeggo.projectkeeggo.logic;
 
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import br.com.keeggo.projectkeeggo.config.ConfigEvidencia;
 import br.com.keeggo.projectkeeggo.config.ConsoleColors;
-import br.com.keeggo.projectkeeggo.config.UsuarioRandom;
-import br.com.keeggo.projectkeeggo.logic.webdriver.WebDriverConfig;
 import br.com.keeggo.projectkeeggo.page.CadastroPage;
 import br.com.keeggo.projectkeeggo.page.HomePage;
 import br.com.keeggo.projectkeeggo.page.LoginPage;
+import br.com.keeggo.projectkeeggo.utils.ConfigEvidencia;
+import br.com.keeggo.projectkeeggo.utils.UsuarioRandom;
+import br.com.keeggo.projectkeeggo.utils.WebDriverConfig;
 
 public class HomeLogic {
 
@@ -55,8 +55,7 @@ public class HomeLogic {
 	public void preencherCampoUsuario() {
 		final String msg = "\t\t\tLogs: ---- Preencho o campo \"Usermame\"----";
 		System.out.println(msg);
-		UsuarioRandom usuarioRandom = new UsuarioRandom();
-		usuarioRandom.lerFileTxt();
+		UsuarioRandom.lerFileTxt();
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
 		WebDriverConfig.waitElementToBeClickable(this.loginPage.getByInputUserName(), 40);
 		WebDriverConfig.browser.findElement(this.loginPage.getByInputUserName()).sendKeys(UsuarioRandom.nomeUsuario);

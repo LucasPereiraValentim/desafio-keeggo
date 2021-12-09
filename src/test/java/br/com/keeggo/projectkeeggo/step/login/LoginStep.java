@@ -5,11 +5,11 @@ import static org.junit.Assert.assertTrue;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-import br.com.keeggo.projectkeeggo.config.ConfigEvidencia;
 import br.com.keeggo.projectkeeggo.config.ConsoleColors;
 import br.com.keeggo.projectkeeggo.logic.HomeLogic;
 import br.com.keeggo.projectkeeggo.logic.LoginLogic;
-import br.com.keeggo.projectkeeggo.logic.webdriver.WebDriverConfig;
+import br.com.keeggo.projectkeeggo.utils.ConfigEvidencia;
+import br.com.keeggo.projectkeeggo.utils.WebDriverConfig;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;

@@ -2,7 +2,7 @@ package br.com.keeggo.projectkeeggo.page;
 
 import org.openqa.selenium.By;
 
-import br.com.keeggo.projectkeeggo.config.UsuarioRandom;
+import br.com.keeggo.projectkeeggo.utils.UsuarioRandom;
 import lombok.Getter;
 
 @Getter
@@ -60,9 +60,13 @@ public class CadastroPage {
 	
 	public CadastroPage() {
 		this.usuarioRandom = new UsuarioRandom();
-		this.usuarioRandom.gerarNomeDeUsuarioAleatorio();
+		try {
+			this.usuarioRandom.consumirApiNomeAleatorio();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		this.usuarioRandom.gravarUserNameFileTxt();
-		this.usuarioRandom.gerarNomeESobrenome();
 	}
 	
 	

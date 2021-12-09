@@ -2,11 +2,11 @@ package br.com.keeggo.projectkeeggo.logic;
 
 import org.openqa.selenium.support.ui.Select;
 
-import br.com.keeggo.projectkeeggo.config.ConfigEvidencia;
 import br.com.keeggo.projectkeeggo.config.ConsoleColors;
-import br.com.keeggo.projectkeeggo.config.UsuarioRandom;
-import br.com.keeggo.projectkeeggo.logic.webdriver.WebDriverConfig;
 import br.com.keeggo.projectkeeggo.page.CadastroPage;
+import br.com.keeggo.projectkeeggo.utils.ConfigEvidencia;
+import br.com.keeggo.projectkeeggo.utils.UsuarioRandom;
+import br.com.keeggo.projectkeeggo.utils.WebDriverConfig;
 
 public class CadastroLogic {
 
@@ -33,7 +33,7 @@ public class CadastroLogic {
 		final String msg = "\t\t\tLogs: ---- Preencho o campo \"Email\" ----";
 		System.out.println(msg);
 		WebDriverConfig.waitElementToBeClickable(cadastroPage.getByInputEmail(), 30);
-		WebDriverConfig.browser.findElement(this.cadastroPage.getByInputEmail()).sendKeys(UsuarioRandom.email + "@teste.com.br");
+		WebDriverConfig.browser.findElement(this.cadastroPage.getByInputEmail()).sendKeys(UsuarioRandom.email);
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
 	}
 

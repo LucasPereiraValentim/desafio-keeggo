@@ -1,4 +1,4 @@
-package br.com.keeggo.projectkeeggo.logic.webdriver;
+package br.com.keeggo.projectkeeggo.utils;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;

@@ -1,8 +1,8 @@
 package br.com.keeggo.projectkeeggo.logic;
 
-import br.com.keeggo.projectkeeggo.config.ConfigEvidencia;
-import br.com.keeggo.projectkeeggo.logic.webdriver.WebDriverConfig;
 import br.com.keeggo.projectkeeggo.page.ProdutoPage;
+import br.com.keeggo.projectkeeggo.utils.ConfigEvidencia;
+import br.com.keeggo.projectkeeggo.utils.WebDriverConfig;
 
 public class ProdutoLogic {
 	

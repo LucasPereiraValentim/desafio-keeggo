@@ -1,4 +1,4 @@
-package br.com.keeggo.projectkeeggo.config;
+package br.com.keeggo.projectkeeggo.utils;
 
 import java.io.File;
 import java.io.FileOutputStream;
