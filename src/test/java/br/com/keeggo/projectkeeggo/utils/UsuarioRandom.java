@@ -51,7 +51,7 @@ public class UsuarioRandom {
 			buffWrite.close();
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
+		} 
 	}
 	
 	public static void lerFileTxt() {

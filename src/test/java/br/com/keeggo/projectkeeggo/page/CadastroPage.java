@@ -9,48 +9,48 @@ import lombok.Getter;
 public class CadastroPage {
 	
 	private final By byInputNomeDeUsuario = 
-			By.xpath("/html/body/div[3]/section/article/sec-form/div[1]/div[2]/div/div[1]/div[1]/sec-view[1]/div/input");
+			By.xpath("//input[@name='usernameRegisterPage']");
 	
 	private final By byInputEmail = 
-			By.xpath("/html/body/div[3]/section/article/sec-form/div[1]/div[2]/div/div[1]/div[1]/sec-view[2]/div/input");
+			By.xpath("//input[@name='emailRegisterPage']");
 	
 	private final By byInputSenha = 
-			By.xpath("//*[@id=\"formCover\"]/div[1]/div[2]/sec-view[1]/div/input");
+			By.xpath("//input[@name='passwordRegisterPage']");
 	
 	private final By byInputConfirmacaoSenha =
-			By.xpath("/html/body/div[3]/section/article/sec-form/div[1]/div[2]/div/div[1]/div[2]/sec-view[2]/div/input");
+			By.xpath("//input[@name='confirm_passwordRegisterPage']");
 	
 	private final By byInputPrimeiroNome = 
-			By.xpath("/html/body/div[3]/section/article/sec-form/div[1]/div[2]/div/div[2]/div[1]/sec-view[1]/div/input");
+			By.xpath("//input[@name='first_nameRegisterPage']");
 	
 	private final By byInputSegundoNome =
-			By.xpath("/html/body/div[3]/section/article/sec-form/div[1]/div[2]/div/div[2]/div[1]/sec-view[2]/div/input");
+			By.xpath("//input[@name='last_nameRegisterPage']");
 	
 	private final By byInputTelefone = 
-			By.xpath("/html/body/div[3]/section/article/sec-form/div[1]/div[2]/div/div[2]/div[2]/sec-view/div/input");
+			By.xpath("//input[@name='phone_numberRegisterPage']");
 
 	private final By byXpathSelect =
-	By.xpath("/html/body/div[3]/section/article/sec-form/div[1]/div[2]/div/div[3]/div[1]/sec-view[1]/div/select");
+	By.xpath("//select[@name='countryListboxRegisterPage']");
 	
 	private final By byInputCidade =
-			By.xpath("/html/body/div[3]/section/article/sec-form/div[1]/div[2]/div/div[3]/div[1]/sec-view[2]/div/input");
+			By.xpath("//input[@name='cityRegisterPage']");
 	
 	private final By byInputEndereco = 
-			By.xpath("/html/body/div[3]/section/article/sec-form/div[1]/div[2]/div/div[3]/div[2]/sec-view[1]/div/input");
+			By.xpath("//input[@name='addressRegisterPage']");
 	
 	private final By byInputEstado =
-			By.xpath("/html/body/div[3]/section/article/sec-form/div[1]/div[2]/div/div[3]/div[2]/sec-view[2]/div/input");
+			By.xpath("//input[@name='state_/_province_/_regionRegisterPage']");
 	
 	private final By byInputCep = 
-			By.xpath("/html/body/div[3]/section/article/sec-form/div[1]/div[2]/div/div[3]/div[3]/sec-view/div/input");
+			By.xpath("//input[@name='postal_codeRegisterPage']");
 	
 	private final By byCheckBoxConcordoTermos = 
-			By.xpath("/html/body/div[3]/section/article/sec-form/div[1]/div[2]/div/sec-view/div/input");
+			By.xpath("//input[@name='i_agree']");
 	
 	private final By byBtnRegistrar = 
-			By.xpath("/html/body/div[3]/section/article/sec-form/div[2]/sec-sender/button");
+			By.xpath("//button[@id='register_btnundefined']");
 	
-	private final By byNomeUsuario = By.xpath("/html/body/header/nav/ul/li[3]/a/span");
+	private final By byNomeUsuario = By.xpath("//a[@id='menuUserLink']");
 	
 	public static final String URL_HOME = "https://www.advantageonlineshopping.com/#/";
 	
@@ -63,7 +63,6 @@ public class CadastroPage {
 		try {
 			this.usuarioRandom.consumirApiNomeAleatorio();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		this.usuarioRandom.gravarUserNameFileTxt();
