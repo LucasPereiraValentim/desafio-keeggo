@@ -9,9 +9,9 @@ public class CarrinhoPage {
 	
 	private final By byItensCarrinho = By.cssSelector("#userCart > span");
 	
-	private final By byBtnRemove = By.xpath("/html/body/div[3]/section/article/div[1]/table/tbody/tr/td[6]/span/a[3]");
+	private final By byBtnRemove = By.xpath("//a[@class='remove red ng-scope']");
 	
-	private final By btMsgCarrinho = By.xpath("/html/body/div[3]/section/article/div[1]/div/label");
+	private final By btMsgCarrinho = By.xpath("//label[@class='roboto-bold ng-scope']");
 
 	public static final String MSG_CARRINHO = "Your shopping cart is empty";
 

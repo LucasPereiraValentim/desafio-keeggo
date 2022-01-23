@@ -8,7 +8,7 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "classpath:features",
 				glue = {"br.com.keeggo.projectkeeggo.step.carrinho"}, //
-				tags = "@PWK_0003" //
+				tags = "@PWK_0004" //
 				)
 public class WebRunner {
 
