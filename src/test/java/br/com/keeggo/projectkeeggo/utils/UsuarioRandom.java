@@ -19,7 +19,6 @@ public class UsuarioRandom {
 	
 	public static String nomeUsuario;
 	
-	
 	public static String email;
 	
 	public static String fistName;
@@ -33,10 +32,8 @@ public class UsuarioRandom {
 		try {
 			this.consumirApiNomeAleatorio();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
 	
 	public void gravarUserNameFileTxt() {
@@ -48,10 +45,13 @@ public class UsuarioRandom {
 		try {
 			BufferedWriter buffWrite = new BufferedWriter(new FileWriter(fileText));
 			buffWrite.append(nomeUsuario);
+			
 			buffWrite.close();
 		} catch (IOException e) {
 			e.printStackTrace();
-		} 
+		} finally {
+			
+		}
 	}
 	
 	public static void lerFileTxt() {
@@ -64,18 +64,12 @@ public class UsuarioRandom {
 			e.printStackTrace();
 		}
 	}
-	
-	
-//	public void gerarNomeESobrenome() {
-//		fistName = nomeUsuario.substring(0, 2);
-//		lastName = nomeUsuario.substring(3, 7);
-//	}
-	
-	
+		
 	public void consumirApiNomeAleatorio() throws Exception{
+		HttpURLConnection connection = null;
 		try {
 			URL url = new URL("http://gerador-nomes.herokuapp.com/nome/aleatorio");
-			HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+			connection = (HttpURLConnection) url.openConnection();
 			
 			if (connection.getResponseCode() != this.httpStatus) {
 				throw new Exception("Erro ao consumir API para gerar nome aleatório");
@@ -91,9 +85,11 @@ public class UsuarioRandom {
 			
 			this.atribuirNomeAleatorio(list.get(0).replace("[", "").replace("\"", ""), list.get(1).replace("\"", "").replace("]", ""));
 			
-			connection.disconnect();
+			
 		} catch (IOException e) {
 			e.printStackTrace();
+		} finally {
+			connection.disconnect();
 		}
 }
 	

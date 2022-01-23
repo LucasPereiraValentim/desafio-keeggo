@@ -7,11 +7,11 @@ import lombok.Getter;
 @Getter
 public class ProdutoPage {
 	
-	private final By bySelecionaProduto = By.xpath("/html/body/div[3]/section/article/div[3]/div/div/div[2]/ul/li[1]/img");
+	private final By bySelecionaProduto = By.xpath("//img[@id='15']");
 	
-	private final By byAddCarrinho = By.xpath("/html/body/div[3]/section/article[1]/div[2]/div[2]/div/div[4]/button");
+	private final By byAddCarrinho = By.xpath("//button[@name='save_to_cart']");
 	
-	private final By byBtnCheckoutCarrinho = By.xpath("//*[@id=\"checkOutPopUp\"]");
+	private final By byBtnCheckoutCarrinho = By.xpath("//button[@id='checkOutPopUp']");
 	
 	public static final String TEXT_NAME_BTN_CHEKOUT = "CHECKOUT";
 }
