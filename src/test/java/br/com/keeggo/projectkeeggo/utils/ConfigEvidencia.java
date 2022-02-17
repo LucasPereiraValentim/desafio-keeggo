@@ -110,7 +110,7 @@ public class ConfigEvidencia {
 
 			Image fileName = Image.getInstance(System.getProperty("user.dir") + "\\evidences-images\\" + cont + ".png");
 			
-			fileName.scaleAbsolute(400f, 400f);
+			fileName.scaleAbsolute(450f, 450f);
 
 			doc.add(fileName);
 		} catch (Exception e) {

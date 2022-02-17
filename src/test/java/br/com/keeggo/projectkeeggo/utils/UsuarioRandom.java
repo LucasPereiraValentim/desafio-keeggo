@@ -21,7 +21,7 @@ public class UsuarioRandom {
 	
 	public static String email;
 	
-	public static String fistName;
+	public static String firstName;
 	
 	public static String lastName;
 	
@@ -40,12 +40,11 @@ public class UsuarioRandom {
 		File file = new File( System.getProperty("user.dir") +
 				"\\name-user");
 		file.mkdirs();
-		File fileText = new File(file.getAbsolutePath() + File.separator + "userName1.txt");
+		File fileText = new File(file.getAbsolutePath() + File.separator + "userName.txt");
 		
 		try {
 			BufferedWriter buffWrite = new BufferedWriter(new FileWriter(fileText));
 			buffWrite.append(nomeUsuario);
-			
 			buffWrite.close();
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -55,7 +54,7 @@ public class UsuarioRandom {
 	}
 	
 	public static void lerFileTxt() {
-		File fileText = new File(System.getProperty("user.dir") + "\\name-user", "userName1.txt");
+		File fileText = new File(System.getProperty("user.dir") + "\\name-user", "userName.txt");
 		try {
 			BufferedReader buffReader = new BufferedReader(new FileReader(fileText));
 			nomeUsuario = buffReader.readLine();
@@ -95,10 +94,16 @@ public class UsuarioRandom {
 	
 	
 	public void atribuirNomeAleatorio(String nome, String sobrenome) {
-		nomeUsuario = this.retirarAcentosUsuario(nome, sobrenome);
-		fistName = nome;
+		
+		int tamanho = this.retirarAcentosUsuario(nome, sobrenome).length();
+		if (tamanho > 15) {
+			nomeUsuario = this.retirarAcentosUsuario(nome, sobrenome).substring(0, 14);
+		} else {
+			nomeUsuario = this.retirarAcentosUsuario(nome, sobrenome);
+		}
+		firstName = nome;
 		lastName = sobrenome;
-		email = this.retirarAcentosUsuario(nome, sobrenome) + "@teste.com".toLowerCase();
+		email = this.retirarAcentosUsuario(nome, sobrenome).toLowerCase() + "@teste.com".replace(" ", "");
 	}
 	
 	

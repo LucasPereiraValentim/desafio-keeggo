@@ -1,5 +1,7 @@
 package br.com.keeggo.projectkeeggo.logic;
 
+import java.time.Duration;
+
 import br.com.keeggo.projectkeeggo.page.ProdutoPage;
 import br.com.keeggo.projectkeeggo.utils.ConfigEvidencia;
 import br.com.keeggo.projectkeeggo.utils.WebDriverConfig;
@@ -19,7 +21,7 @@ public class ProdutoLogic {
 	public void selecionarProduto() {
 		final String msg = "\t\t\tLogs: ---- Seleciono um produto ----";
 		System.out.println(msg);
-		WebDriverConfig.waitElementToBeClickable(this.produtoPage.getBySelecionaProduto(), 40);
+		WebDriverConfig.waitElementToBeClickable(this.produtoPage.getBySelecionaProduto(), Duration.ofSeconds(50));
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
 		WebDriverConfig.browser.findElement(this.produtoPage.getBySelecionaProduto()).click();
 	}
@@ -28,7 +30,7 @@ public class ProdutoLogic {
 	public void addProdutoCarrinho() {
 		final String msg = "\t\t\tLogs: ---- Adiciono um produto ao carrinho ----";
 		System.out.println(msg);
-		WebDriverConfig.waitElementToBeClickable(this.produtoPage.getByAddCarrinho(), 40);
+		WebDriverConfig.waitElementToBeClickable(this.produtoPage.getByAddCarrinho(), Duration.ofSeconds(50));
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
 		WebDriverConfig.browser.findElement(this.produtoPage.getByAddCarrinho()).click();
 	}

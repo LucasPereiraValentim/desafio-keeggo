@@ -1,5 +1,7 @@
 package br.com.keeggo.projectkeeggo.logic;
 
+import java.time.Duration;
+
 import br.com.keeggo.projectkeeggo.page.CarrinhoPage;
 import br.com.keeggo.projectkeeggo.utils.ConfigEvidencia;
 import br.com.keeggo.projectkeeggo.utils.WebDriverConfig;
@@ -19,7 +21,7 @@ public class CarrinhoLogic {
 	public boolean isAddCarrinho() {
 			final String msg = "\t\t\tLogs: ---- Valido Carrinho ----";
 			System.out.println(msg);
-			WebDriverConfig.waitElementToVisibility(this.carrinhoPage.getByItensCarrinho(), 50);
+			WebDriverConfig.waitElementToVisibility(this.carrinhoPage.getByItensCarrinho(), Duration.ofSeconds(50));
 			this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
 			this.configEvidencia.fecharPdf();
 			String qtdItensNumber = WebDriverConfig.browser.findElement(this.carrinhoPage.getByItensCarrinho()).getText().substring(0, 1)
@@ -33,7 +35,7 @@ public class CarrinhoLogic {
 	public void clickBtnRemoveProduto() {
 		final String msg = "\t\t\tLogs: ---- Clico em \"Remove\" para remover produto do carrinho de compras ----";
 		System.out.println(msg);
-		WebDriverConfig.waitElementToBeClickable(this.carrinhoPage.getByBtnRemove(), 30);
+		WebDriverConfig.waitElementToBeClickable(this.carrinhoPage.getByBtnRemove(), Duration.ofSeconds(50));
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
 		WebDriverConfig.browser.findElement(this.carrinhoPage.getByBtnRemove()).click();
 	}
@@ -42,7 +44,7 @@ public class CarrinhoLogic {
 	public boolean isRemoveCarrinho() {
 		final String msg = "\t\t\tLogs: ---- Valido Carrinho ----";
 		System.out.println(msg);
-		WebDriverConfig.waitElementToVisibility(this.carrinhoPage.getBtMsgCarrinho(), 50);
+		WebDriverConfig.waitElementToVisibility(this.carrinhoPage.getBtMsgCarrinho(), Duration.ofSeconds(50));
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
 		this.configEvidencia.fecharPdf();
 		return WebDriverConfig.browser.findElement(this.carrinhoPage.getBtMsgCarrinho()).getText().equals(CarrinhoPage.MSG_CARRINHO);

@@ -45,7 +45,7 @@ public class CadastroStep {
 		
 	}
 
-	@When("clico btn para redirecionar para criar novo usuario")
+	@When("clico no botao para redirecionar para tela de cadastro")
 	public void click_btn_redirecionar_cadastro() {		
 		this.homeLogic.clickBtnRedirecionarParaCadastro(); 
 	}

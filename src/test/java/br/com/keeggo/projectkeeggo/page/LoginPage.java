@@ -7,7 +7,7 @@ import lombok.Getter;
 @Getter
 public class LoginPage {
 	
-	private final By byBtnCriarNovousuario = By.xpath("//a[@href='javascript:void(0)']");
+	private final By byBtnCriarNovousuario = By.xpath("//a[@class='create-new-account ng-scope']");
 	
 	private final By byInputUserName = By.xpath("//input[@name='username']");
 	

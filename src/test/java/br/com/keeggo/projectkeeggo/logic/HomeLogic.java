@@ -1,5 +1,7 @@
 package br.com.keeggo.projectkeeggo.logic;
 
+import java.time.Duration;
+
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import br.com.keeggo.projectkeeggo.config.ConsoleColors;
@@ -10,6 +12,7 @@ import br.com.keeggo.projectkeeggo.utils.ConfigEvidencia;
 import br.com.keeggo.projectkeeggo.utils.UsuarioRandom;
 import br.com.keeggo.projectkeeggo.utils.WebDriverConfig;
 
+
 public class HomeLogic {
 
 	private HomePage homePage;
@@ -19,7 +22,7 @@ public class HomeLogic {
 	private ConfigEvidencia configEvidencia;
 	
 	public HomeLogic() {
-		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") +  "/drivers/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/drivers/chromedriver.exe");
 		WebDriverConfig.browser = new ChromeDriver();
 		WebDriverConfig.browser.navigate().to(CadastroPage.URL_HOME);
 		this.homePage = new HomePage();
@@ -32,7 +35,7 @@ public class HomeLogic {
 	public void clickIconeAbrirPopUpLogin() {
 		final String msg = ConsoleColors.YELLOW + "\t\t\t\tLogs: ---- Clico no ícone de usuário ----";
 		System.out.println(msg);
-		WebDriverConfig.waitElementToBeClickable(this.homePage.getByRedirecionaLogin(), 30);
+		WebDriverConfig.waitElementToBeClickable(this.homePage.getByRedirecionaLogin(), Duration.ofSeconds(50));
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
 		WebDriverConfig.browser.findElement(homePage.getByRedirecionaLogin()).click();
 	}
@@ -46,7 +49,7 @@ public class HomeLogic {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		WebDriverConfig.waitElementToBeClickable(this.loginPage.getByBtnCriarNovousuario(), 40);
+		WebDriverConfig.waitElementToBeClickable(this.loginPage.getByBtnCriarNovousuario(), Duration.ofSeconds(50));
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
 		WebDriverConfig.browser.findElement(this.loginPage.getByBtnCriarNovousuario()).click();
 	}
@@ -57,7 +60,7 @@ public class HomeLogic {
 		System.out.println(msg);
 		UsuarioRandom.lerFileTxt();
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
-		WebDriverConfig.waitElementToBeClickable(this.loginPage.getByInputUserName(), 40);
+		WebDriverConfig.waitElementToBeClickable(this.loginPage.getByInputUserName(), Duration.ofSeconds(50));
 		WebDriverConfig.browser.findElement(this.loginPage.getByInputUserName()).sendKeys(UsuarioRandom.nomeUsuario);
 		
 	}
@@ -67,7 +70,7 @@ public class HomeLogic {
 		final String msg = "\t\t\tLogs: ---- Preencho o campo \"Password\"----";
 		System.out.println(msg);
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
-		WebDriverConfig.waitElementToBeClickable(this.loginPage.getByInputPassWord(), 40);
+		WebDriverConfig.waitElementToBeClickable(this.loginPage.getByInputPassWord(), Duration.ofSeconds(50));
 		WebDriverConfig.browser.findElement(this.loginPage.getByInputPassWord()).sendKeys(CadastroPage.senha);
 	}
 	
@@ -76,11 +79,11 @@ public class HomeLogic {
 		final String msg = "\t\t\tLogs: ---- Clico no botão \"SIGN IN\"----";
 		System.out.println(msg);
 		try {
-			Thread.sleep(5000);
+			Thread.sleep(10000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
-		WebDriverConfig.waitElementToBeClickable(this.loginPage.getByBtnSignIn(), 40);
+		WebDriverConfig.waitElementToBeClickable(this.loginPage.getByBtnSignIn(), Duration.ofSeconds(50));
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
 		WebDriverConfig.browser.findElement(this.loginPage.getByBtnSignIn()).click();	
 	}

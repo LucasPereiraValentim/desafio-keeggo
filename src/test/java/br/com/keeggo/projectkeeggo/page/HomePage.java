@@ -8,8 +8,4 @@ import lombok.Getter;
 public class HomePage {
 	
 	private final By byRedirecionaLogin = By.id("menuUser");
-	
-	
-	
-	
 }
