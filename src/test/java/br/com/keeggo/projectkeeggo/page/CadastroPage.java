@@ -28,7 +28,7 @@ public class CadastroPage {
 	
 	private final By byInputTelefone = 
 			By.xpath("//input[@name='phone_numberRegisterPage']");
-
+	
 	private final By byXpathSelect =
 	By.xpath("//select[@name='countryListboxRegisterPage']");
 	
