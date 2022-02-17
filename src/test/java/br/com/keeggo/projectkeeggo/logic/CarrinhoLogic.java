@@ -2,11 +2,16 @@ package br.com.keeggo.projectkeeggo.logic;
 
 import java.time.Duration;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import br.com.keeggo.projectkeeggo.page.CarrinhoPage;
 import br.com.keeggo.projectkeeggo.utils.ConfigEvidencia;
 import br.com.keeggo.projectkeeggo.utils.WebDriverConfig;
 
 public class CarrinhoLogic {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(HomeLogic.class);
 
 	private CarrinhoPage carrinhoPage;
 	
@@ -19,8 +24,8 @@ public class CarrinhoLogic {
 	
 	//Verifica se encontra os elementos para validar
 	public boolean isAddCarrinho() {
-			final String msg = "\t\t\tLogs: ---- Valido Carrinho ----";
-			System.out.println(msg);
+			String msg = "Válido Carrinho";
+			LOG.info(msg);
 			WebDriverConfig.waitElementToVisibility(this.carrinhoPage.getByItensCarrinho(), Duration.ofSeconds(50));
 			this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
 			this.configEvidencia.fecharPdf();
@@ -33,8 +38,8 @@ public class CarrinhoLogic {
 	
 	// Botão para remover produto do carrinho de compras
 	public void clickBtnRemoveProduto() {
-		final String msg = "\t\t\tLogs: ---- Clico em \"Remove\" para remover produto do carrinho de compras ----";
-		System.out.println(msg);
+		String msg = "Clico em \"Remove\" para remover produto do carrinho de compras";
+		LOG.info(msg);
 		WebDriverConfig.waitElementToBeClickable(this.carrinhoPage.getByBtnRemove(), Duration.ofSeconds(50));
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
 		WebDriverConfig.browser.findElement(this.carrinhoPage.getByBtnRemove()).click();
@@ -42,8 +47,8 @@ public class CarrinhoLogic {
 	
 	// Verifica se encontra os elementos para validar
 	public boolean isRemoveCarrinho() {
-		final String msg = "\t\t\tLogs: ---- Valido Carrinho ----";
-		System.out.println(msg);
+		String msg = "Valido Carrinho";
+		LOG.info(msg);
 		WebDriverConfig.waitElementToVisibility(this.carrinhoPage.getBtMsgCarrinho(), Duration.ofSeconds(50));
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
 		this.configEvidencia.fecharPdf();

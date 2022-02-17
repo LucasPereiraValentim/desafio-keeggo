@@ -2,10 +2,9 @@ package br.com.keeggo.projectkeeggo.step.login;
 
 import static org.junit.Assert.assertTrue;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import br.com.keeggo.projectkeeggo.config.ConsoleColors;
 import br.com.keeggo.projectkeeggo.logic.HomeLogic;
 import br.com.keeggo.projectkeeggo.logic.LoginLogic;
 import br.com.keeggo.projectkeeggo.utils.ConfigEvidencia;
@@ -18,6 +17,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 
 public class LoginStep {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(HomeLogic.class);
 
 	private HomeLogic homeLogic;
 	
@@ -43,9 +44,8 @@ public class LoginStep {
 	
 	@Given("home clique no icone de login")
 	public void click_btn_redireciona_login() {
-		String initTestTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
-		System.out.println(ConsoleColors.GREEN  + "\t\tLogs: ---- Teste no cenário "
-				+"\""+ ConfigEvidencia.nameFile + "\"" + " Iniciado na data de "+ initTestTime +" ----");
+		String msg = "Teste no cenário " + ConfigEvidencia.nameFile;
+		LOG.info(msg);
 		this.homeLogic.clickIconeAbrirPopUpLogin();
 		
 	}
@@ -66,10 +66,12 @@ public class LoginStep {
 	public void valido_login() {
 		boolean testeValido = this.loginLogic.validarLogin();
 		if (testeValido) {
-			System.out.println(ConsoleColors.GREEN + "\t\t\t\tLogs: ############ TESTE PASSOU ############");
+			String msg = "TEST PASSED";
+			LOG.info(msg);
 			assertTrue(testeValido);
 		} else {
-			System.out.println(ConsoleColors.RED + "\t\t\t\tLogs: ############ TESTE FALHOU ############");
+			String msg = "TEST FALEID";
+			LOG.error(msg);
 			assertTrue(false);
 		}
 	}

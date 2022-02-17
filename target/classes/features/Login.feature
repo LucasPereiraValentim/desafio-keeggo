@@ -1,4 +1,4 @@
-@ValidarLogin
+@Login
 Feature: Login
 
 	#PWK = Projeto Web Keeggo

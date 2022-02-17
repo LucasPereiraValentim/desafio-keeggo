@@ -2,10 +2,9 @@ package br.com.keeggo.projectkeeggo.step.carrinho;
 
 import static org.junit.Assert.assertTrue;
 
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import br.com.keeggo.projectkeeggo.config.ConsoleColors;
 import br.com.keeggo.projectkeeggo.logic.CarrinhoLogic;
 import br.com.keeggo.projectkeeggo.logic.HomeLogic;
 import br.com.keeggo.projectkeeggo.logic.LoginLogic;
@@ -21,6 +20,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class CarrinhoStep{
+	
+	private static final Logger LOG = LoggerFactory.getLogger(HomeLogic.class);
 	
 	private HomeLogic homeLogic;
 	
@@ -46,9 +47,8 @@ public class CarrinhoStep{
 	
 	@Given("home clique no icone de login")
 	public void click_btn_redireciona_login() {
-		String initTestTime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss"));
-		System.out.println(ConsoleColors.GREEN  + "\t\tLogs: ---- Teste no cenário "
-				+"\""+ ConfigEvidencia.nameFile + "\"" + " Iniciado na data de "+ initTestTime +" ----");
+		String msg = "Teste no cenário " + ConfigEvidencia.nameFile;
+		LOG.info(msg);
 		this.homeLogic.clickIconeAbrirPopUpLogin();
 		
 	}
@@ -89,10 +89,12 @@ public class CarrinhoStep{
 	public void validar_add_carrinho() {
 		boolean testeValido = this.carrinhoLogic.isAddCarrinho();
 		if (testeValido) {
-			System.out.println(ConsoleColors.GREEN + "\t\t\t\tLogs: ############ TESTE PASSOU ############");
+			String msg = "TEST PASSED";
+			LOG.info(msg);
 			assertTrue(testeValido);
 		} else {
-			System.out.println(ConsoleColors.RED + "\t\t\t\tLogs: ############ TESTE FALHOU ############");
+			String msg = "TEST FALEID";
+			LOG.error(msg);
 			assertTrue(false);
 		}
 	}
@@ -113,10 +115,12 @@ public class CarrinhoStep{
 	public void validar_remove_produto() {
 		boolean testeValido = this.carrinhoLogic.isRemoveCarrinho();
 		if (testeValido) {
-			System.out.println(ConsoleColors.GREEN + "\t\t\t\tLogs: ############ TESTE PASSOU ############");
+			String msg = "TEST PASSED";
+			LOG.info(msg);
 			assertTrue(testeValido);
 		} else {
-			System.out.println(ConsoleColors.RED + "\t\t\t\tLogs: ############ TESTE FALHOU ############");
+			String msg = "TEST FALEID";
+			LOG.error(msg);
 			assertTrue(false);
 		}
 	}

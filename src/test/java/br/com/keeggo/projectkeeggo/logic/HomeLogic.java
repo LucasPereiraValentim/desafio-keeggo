@@ -3,8 +3,9 @@ package br.com.keeggo.projectkeeggo.logic;
 import java.time.Duration;
 
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
-import br.com.keeggo.projectkeeggo.config.ConsoleColors;
 import br.com.keeggo.projectkeeggo.page.CadastroPage;
 import br.com.keeggo.projectkeeggo.page.HomePage;
 import br.com.keeggo.projectkeeggo.page.LoginPage;
@@ -14,6 +15,8 @@ import br.com.keeggo.projectkeeggo.utils.WebDriverConfig;
 
 
 public class HomeLogic {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(HomeLogic.class);
 
 	private HomePage homePage;
 
@@ -33,8 +36,8 @@ public class HomeLogic {
 	
 	//Clica no botão para abrir pop up de login
 	public void clickIconeAbrirPopUpLogin() {
-		final String msg = ConsoleColors.YELLOW + "\t\t\t\tLogs: ---- Clico no ícone de usuário ----";
-		System.out.println(msg);
+		String msg = "Clico no ícone de usuário";
+		LOG.info(msg);
 		WebDriverConfig.waitElementToBeClickable(this.homePage.getByRedirecionaLogin(), Duration.ofSeconds(50));
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
 		WebDriverConfig.browser.findElement(homePage.getByRedirecionaLogin()).click();
@@ -42,8 +45,8 @@ public class HomeLogic {
 
 	// Clica no botão para redirecionar para tela de cadastro e retorna o WebDriver em execução
 	public void clickBtnRedirecionarParaCadastro() {
-		final String msg = "\t\t\tLogs: ---- Clico no botão \"CREATE NEW ACCOUNT\"----";
-		System.out.println(msg);
+		String msg = "Clico no botão \"CREATE NEW ACCOUNT\"";
+		LOG.info(msg);
 		try {
 			Thread.sleep(15000);
 		} catch (InterruptedException e) {
@@ -56,8 +59,8 @@ public class HomeLogic {
 	
 	// Campo Usuario
 	public void preencherCampoUsuario() {
-		final String msg = "\t\t\tLogs: ---- Preencho o campo \"Usermame\"----";
-		System.out.println(msg);
+		String msg = "Preencho o campo \"Usermame\"";
+		LOG.info(msg);
 		UsuarioRandom.lerFileTxt();
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
 		WebDriverConfig.waitElementToBeClickable(this.loginPage.getByInputUserName(), Duration.ofSeconds(50));
@@ -67,8 +70,8 @@ public class HomeLogic {
 	
 	//Campo Senha
 	public void preencherCampoSenha() {
-		final String msg = "\t\t\tLogs: ---- Preencho o campo \"Password\"----";
-		System.out.println(msg);
+		String msg = "Preencho o campo \"Password\"";
+		LOG.info(msg);
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
 		WebDriverConfig.waitElementToBeClickable(this.loginPage.getByInputPassWord(), Duration.ofSeconds(50));
 		WebDriverConfig.browser.findElement(this.loginPage.getByInputPassWord()).sendKeys(CadastroPage.senha);
@@ -76,8 +79,8 @@ public class HomeLogic {
 	
 	// Clica no botão de realizar login
 	public void clickBtnRealizarLogin() {
-		final String msg = "\t\t\tLogs: ---- Clico no botão \"SIGN IN\"----";
-		System.out.println(msg);
+		String msg = "Clico no botão \"SIGN IN\"";
+		LOG.info(msg);
 		try {
 			Thread.sleep(10000);
 		} catch (InterruptedException e) {

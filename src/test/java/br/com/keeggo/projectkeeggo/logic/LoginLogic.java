@@ -2,7 +2,9 @@ package br.com.keeggo.projectkeeggo.logic;
 
 import java.time.Duration;
 
-import br.com.keeggo.projectkeeggo.config.ConsoleColors;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import br.com.keeggo.projectkeeggo.page.CadastroPage;
 import br.com.keeggo.projectkeeggo.page.LoginPage;
 import br.com.keeggo.projectkeeggo.utils.ConfigEvidencia;
@@ -10,6 +12,8 @@ import br.com.keeggo.projectkeeggo.utils.UsuarioRandom;
 import br.com.keeggo.projectkeeggo.utils.WebDriverConfig;
 
 public class LoginLogic {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(HomeLogic.class);
 	
 	private LoginPage loginPage;
 	
@@ -22,8 +26,8 @@ public class LoginLogic {
 	
 	//Seleciona uma categoria e retorna o WebDriver em execução
 	public void selecionarCategoria() {
-		final String msg = ConsoleColors.YELLOW + "\t\t\t\tLogs: ---- Clico em um categoria de produto ----";
-		System.out.println(msg);
+		String msg = "Clico em uma categoria de produto";
+		LOG.info(msg);;
 		WebDriverConfig.waitElementToBeClickable(this.loginPage.getByCategoria(), Duration.ofSeconds(50));
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
 		WebDriverConfig.browser.findElement(this.loginPage.getByCategoria()).click(); 
@@ -31,8 +35,8 @@ public class LoginLogic {
 	
 	// Verifica se encontra os elementos para validar
 	public boolean validarLogin() {
-		final String msg = "\t\t\tLogs: ---- Valido Login ----" + ConsoleColors.RESET;
-		System.out.println(msg);
+		String msg = "Válido Login";
+		LOG.info(msg);
 		WebDriverConfig.waitElementToVisibility(this.loginPage.getByNomeUsuario(), Duration.ofSeconds(50));
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
 		return WebDriverConfig.browser.getCurrentUrl().equals(CadastroPage.URL_HOME) && 
@@ -42,8 +46,8 @@ public class LoginLogic {
 	
 	// Clica no Icone de carrinho para adicionar um produto e retorna o WebDriver em execução
 	public void clicarIconeCarrinho() { 
-		final String msg = "\t\t\tLogs: ---- Clico no ícone de carrinho ----";
-		System.out.println(msg);
+		String msg = "Clico no ícone de carrinho";
+		LOG.info(msg);
 		WebDriverConfig.waitElementToBeClickable(this.loginPage.getByIconeCarrinho(), Duration.ofSeconds(50));
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
 		WebDriverConfig.browser.findElement(this.loginPage.getByIconeCarrinho()).click();

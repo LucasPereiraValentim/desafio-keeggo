@@ -2,11 +2,16 @@ package br.com.keeggo.projectkeeggo.logic;
 
 import java.time.Duration;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import br.com.keeggo.projectkeeggo.page.ProdutoPage;
 import br.com.keeggo.projectkeeggo.utils.ConfigEvidencia;
 import br.com.keeggo.projectkeeggo.utils.WebDriverConfig;
 
 public class ProdutoLogic {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(HomeLogic.class);
 	
 	private ProdutoPage produtoPage;
 	
@@ -19,8 +24,8 @@ public class ProdutoLogic {
 	
 	//Seleciona um produto
 	public void selecionarProduto() {
-		final String msg = "\t\t\tLogs: ---- Seleciono um produto ----";
-		System.out.println(msg);
+		String msg = "Seleciono um produto";
+		LOG.info(msg);
 		WebDriverConfig.waitElementToBeClickable(this.produtoPage.getBySelecionaProduto(), Duration.ofSeconds(50));
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
 		WebDriverConfig.browser.findElement(this.produtoPage.getBySelecionaProduto()).click();
@@ -28,8 +33,8 @@ public class ProdutoLogic {
 	
 	// Adiciona um produto ao carrinho
 	public void addProdutoCarrinho() {
-		final String msg = "\t\t\tLogs: ---- Adiciono um produto ao carrinho ----";
-		System.out.println(msg);
+		String msg = "Adiciono um produto ao carrinho";
+		LOG.info(msg);
 		WebDriverConfig.waitElementToBeClickable(this.produtoPage.getByAddCarrinho(), Duration.ofSeconds(50));
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
 		WebDriverConfig.browser.findElement(this.produtoPage.getByAddCarrinho()).click();
@@ -37,8 +42,8 @@ public class ProdutoLogic {
 	
 	//Clica no Botão para redirecionar para o carrinho
 	public void clicoBtnIrParaCarrinho() {
-		final String msg = "\t\t\tLogs: ---- Clico para ir para o carrinho de compras ----";
-		System.out.println(msg);
+		String msg = "Clico para ir para o carrinho de compras";
+		LOG.info(msg);
 		try {
 			Thread.sleep(5000);
 		} catch (InterruptedException e) {

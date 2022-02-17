@@ -1,4 +1,4 @@
-@ValidarCadastro
+@Cadastro
 Feature: Cadastro
 	
 	#PWK = Projeto Web Keeggo

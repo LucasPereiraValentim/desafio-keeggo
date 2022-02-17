@@ -1,4 +1,4 @@
-@AdicionarAoCarinho
+@Carrinho
 Feature: Carrinho
 	
 	#PWK = Projeto Web Keeggo
