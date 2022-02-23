@@ -37,9 +37,8 @@ public class LoginStep {
 	
 	@After
 	public void after() {
-		
 		this.configEvidencia.fecharPdf();
-		WebDriverConfig.browser.close();
+		WebDriverConfig.quitBrowser();
 	}
 	
 	@Given("home clique no icone de login")

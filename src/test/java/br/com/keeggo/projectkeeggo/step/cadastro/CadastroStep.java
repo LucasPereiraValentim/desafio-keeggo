@@ -34,7 +34,7 @@ public class CadastroStep {
 	
 	@After
 	public void after() {
-		WebDriverConfig.browser.close();
+		WebDriverConfig.quitBrowser();
 	}
 	
 	@Given("home clique no icone de login")

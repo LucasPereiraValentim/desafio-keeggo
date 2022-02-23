@@ -45,6 +45,10 @@ public class WebDriverConfig {
 		jsScroll.executeScript("arguments[0].scrollIntoViewIfNeeded(true);", elementMove);
 	}
 	
+	public static void quitBrowser() {
+		browser.quit();
+	}
+	
 	
 	
 }
