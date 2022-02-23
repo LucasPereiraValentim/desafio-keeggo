@@ -163,7 +163,7 @@ public class CadastroLogic {
 		}
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
 		this.configEvidencia.fecharPdf();
-		return WebDriverConfig.browser.getCurrentUrl().equals(CadastroPage.URL_HOME) && WebDriverConfig.browser
+		return WebDriverConfig.browser.getCurrentUrl().equals(WebDriverConfig.URL_HOME) && WebDriverConfig.browser
 				.findElement(this.cadastroPage.getByNomeUsuario()).getText().equals(UsuarioRandom.nomeUsuario);
 	}
 

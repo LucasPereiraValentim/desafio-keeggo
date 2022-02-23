@@ -2,7 +2,6 @@ package br.com.keeggo.projectkeeggo.logic;
 
 import java.time.Duration;
 
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -25,9 +24,8 @@ public class HomeLogic {
 	private ConfigEvidencia configEvidencia;
 	
 	public HomeLogic() {
-		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/drivers/chromedriver.exe");
-		WebDriverConfig.browser = new ChromeDriver();
-		WebDriverConfig.browser.navigate().to(CadastroPage.URL_HOME);
+		WebDriverConfig.initDriver();
+		WebDriverConfig.navigateToURL();
 		this.homePage = new HomePage();
 		this.loginPage = new LoginPage();
 		this.configEvidencia = new ConfigEvidencia();

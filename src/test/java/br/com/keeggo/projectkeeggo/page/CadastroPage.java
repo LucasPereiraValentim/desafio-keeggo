@@ -52,8 +52,6 @@ public class CadastroPage {
 	
 	private final By byNomeUsuario = By.xpath("//a[@id='menuUserLink']");
 	
-	public static final String URL_HOME = "https://www.advantageonlineshopping.com/#/";
-	
 	private UsuarioRandom usuarioRandom;
 	
 	public static String senha = "#Pp82369785";

@@ -5,7 +5,6 @@ import java.time.Duration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import br.com.keeggo.projectkeeggo.page.CadastroPage;
 import br.com.keeggo.projectkeeggo.page.LoginPage;
 import br.com.keeggo.projectkeeggo.utils.ConfigEvidencia;
 import br.com.keeggo.projectkeeggo.utils.UsuarioRandom;
@@ -37,9 +36,9 @@ public class LoginLogic {
 	public boolean validarLogin() {
 		String msg = "Válido Login";
 		LOG.info(msg);
-		WebDriverConfig.waitElementToVisibility(this.loginPage.getByNomeUsuario(), Duration.ofSeconds(50));
+		WebDriverConfig.waitElementToVisibility(this.loginPage.getByNomeUsuario(), Duration.ofSeconds(80));
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
-		return WebDriverConfig.browser.getCurrentUrl().equals(CadastroPage.URL_HOME) && 
+		return WebDriverConfig.browser.getCurrentUrl().equals(WebDriverConfig.URL_HOME) && 
 		WebDriverConfig.browser.findElement(this.loginPage.getByNomeUsuario()).getText().equals(UsuarioRandom.nomeUsuario);
 	}
 	
