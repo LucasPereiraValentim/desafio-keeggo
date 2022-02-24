@@ -1,9 +1,9 @@
 @Carrinho
-Feature: Carrinho
+Feature: Carrinho de compras
 	
 	#PWK = Projeto Web Keeggo
-	@PWK_0001
-	Scenario: Deveria adicionar um produto ao carrinho com sucesso
+	@PWK_0003
+	Scenario: Adicionar um produto ao carrinho
 		Given home clique no icone de login
 		When preencho campos de login
 		And clico no btn de logar
@@ -13,8 +13,8 @@ Feature: Carrinho
 		And Clico no botão para ir para o carrinho
 		Then valido se foi adicionado ao carrinho
 		
-		@PWK_0002
-		Scenario: Deveria remover produto do carrinho de compras com sucesso
+		@PWK_0004
+		Scenario: Remover produto do carrinho
 			Given home clique no icone de login
 			When preencho campos de login
 			And clico no btn de logar

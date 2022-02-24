@@ -44,11 +44,7 @@ public class ProdutoLogic {
 	public void clicoBtnIrParaCarrinho() {
 		String msg = "Clico para ir para o carrinho de compras";
 		LOG.info(msg);
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		WebDriverConfig.waitElementToBeClickable(this.produtoPage.getByAddCarrinho(), Duration.ofMinutes(1));
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
 		WebDriverConfig.browser.findElement(this.produtoPage.getByBtnCheckoutCarrinho()).click();
 	}

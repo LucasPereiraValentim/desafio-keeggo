@@ -28,6 +28,10 @@ public class WebDriverConfig {
 		WebDriverConfig.browser.navigate().to(URL_HOME);
 	}
 	
+	public static void maximizeBrowser() {
+		WebDriverConfig.browser.manage().window().maximize();
+	}
+	
 	public static void waitElementToBeClickable(By element, Duration duration) {
 		wait = new WebDriverWait(browser, duration);
 		wait.until(ExpectedConditions.elementToBeClickable(element));
@@ -46,7 +50,7 @@ public class WebDriverConfig {
 	}
 	
 	public static void quitBrowser() {
-		browser.quit();
+		browser.quit();;
 	}
 	
 	

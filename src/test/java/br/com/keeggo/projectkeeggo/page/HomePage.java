@@ -7,5 +7,6 @@ import lombok.Getter;
 @Getter
 public class HomePage {
 	
-	private final By byRedirecionaLogin = By.id("menuUser");
+	private final By byRedirecionaLogin = By.xpath("//a[@id='menuUserLink']");
+	
 }

@@ -26,6 +26,7 @@ public class HomeLogic {
 	public HomeLogic() {
 		WebDriverConfig.initDriver();
 		WebDriverConfig.navigateToURL();
+		WebDriverConfig.maximizeBrowser();
 		this.homePage = new HomePage();
 		this.loginPage = new LoginPage();
 		this.configEvidencia = new ConfigEvidencia();
@@ -36,7 +37,7 @@ public class HomeLogic {
 	public void clickIconeAbrirPopUpLogin() {
 		String msg = "Clico no ícone de usuário";
 		LOG.info(msg);
-		WebDriverConfig.waitElementToBeClickable(this.homePage.getByRedirecionaLogin(), Duration.ofSeconds(50));
+		WebDriverConfig.waitElementToBeClickable(this.homePage.getByRedirecionaLogin(), Duration.ofMinutes(1));
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
 		WebDriverConfig.browser.findElement(homePage.getByRedirecionaLogin()).click();
 	}
@@ -46,7 +47,7 @@ public class HomeLogic {
 		String msg = "Clico no botão \"CREATE NEW ACCOUNT\"";
 		LOG.info(msg);
 		try {
-			Thread.sleep(15000);
+			Thread.sleep(6000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
@@ -80,7 +81,7 @@ public class HomeLogic {
 		String msg = "Clico no botão \"SIGN IN\"";
 		LOG.info(msg);
 		try {
-			Thread.sleep(10000);
+			Thread.sleep(6000);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}

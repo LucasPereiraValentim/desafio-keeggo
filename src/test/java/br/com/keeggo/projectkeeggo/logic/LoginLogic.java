@@ -38,6 +38,7 @@ public class LoginLogic {
 		LOG.info(msg);
 		WebDriverConfig.waitElementToVisibility(this.loginPage.getByNomeUsuario(), Duration.ofSeconds(80));
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
+		this.configEvidencia.fecharPdf();
 		return WebDriverConfig.browser.getCurrentUrl().equals(WebDriverConfig.URL_HOME) && 
 		WebDriverConfig.browser.findElement(this.loginPage.getByNomeUsuario()).getText().equals(UsuarioRandom.nomeUsuario);
 	}

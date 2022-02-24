@@ -24,20 +24,18 @@ public class LoginStep {
 	
 	private LoginLogic loginLogic;
 	
-	private ConfigEvidencia configEvidencia;
 	
 	@Before
 	public void setup(Scenario scenario) {
 		ConfigEvidencia.nameFile = scenario.getName();
 		this.homeLogic = new HomeLogic();
 		this.loginLogic = new LoginLogic();
-		this.configEvidencia = new ConfigEvidencia();
+		
 	}
 	
 	
 	@After
 	public void after() {
-		this.configEvidencia.fecharPdf();
 		WebDriverConfig.quitBrowser();
 	}
 	
