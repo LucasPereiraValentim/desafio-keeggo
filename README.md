@@ -8,7 +8,7 @@ Os testes precisam gerar evidência final com o resultado indicativo de sucesso 
 Utilizem a criatividade nas definições das necessidades do projeto e as melhores práticas aprendidas 
 
 ## Cenários de testes 
-- Cadastrar Usuário 
-- Cadastrar Usuário 
-- Cadastrar Usuário 
+- Cadastrar Usuário com Sucesso
+- Realizar Login com Sucesso
+- Adicionar Produto ao Carrinho com Sucesso 
 - Remover produtos do carrinho
