@@ -9,6 +9,8 @@ import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
@@ -22,8 +24,12 @@ import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
-public class ConfigEvidencia {
+import br.com.keeggo.projectkeeggo.logic.HomeLogic;
 
+public class ConfigEvidencia {
+	
+	private static final Logger LOG = LoggerFactory.getLogger(HomeLogic.class);
+	
 	public static Document doc;
 
 	public static String nameFile;
@@ -39,6 +45,7 @@ public class ConfigEvidencia {
 		try {
 			this.criarPdf(filePdf);
 		} catch (Exception e) {
+			filePdf.delete();
 			e.printStackTrace();
 		}
 	}
@@ -62,7 +69,7 @@ public class ConfigEvidencia {
 
 		String executadorTeste = System.getProperty("user.name");
 
-		PdfPTable tableHeader = new PdfPTable(new float[] { 0.15f, 0.35f, 0.13f, 0.37f });
+		PdfPTable tableHeader = new PdfPTable(new float[] { 0.15f, 0.35f, 0.13f, 0.37f});
 
 		PdfPCell header = new PdfPCell(new Paragraph("Info Teste", fontCabecalho));
 
@@ -100,21 +107,23 @@ public class ConfigEvidencia {
 	// Tira screenshot de todas pages por qual o teste passa
 	public void gerarScreenshot(WebDriver browser) {
 		try {
-			TakesScreenshot ts = (TakesScreenshot) browser;
-			File photo = ts.getScreenshotAs(OutputType.FILE);
-
+			
+			Thread.sleep(2000);
+			
+			File photo = ((TakesScreenshot) browser).getScreenshotAs(OutputType.FILE);
+							
 			cont++;
 
 			FileUtils.copyFile(photo,
 					new File(System.getProperty("user.dir") + "\\evidences-images\\" + cont + ".png"));
 
-			Image fileName = Image.getInstance(System.getProperty("user.dir") + "\\evidences-images\\" + cont + ".png");
+			Image imagePage = Image.getInstance(System.getProperty("user.dir") + "\\evidences-images\\" + cont + ".png");
 			
-			fileName.scaleAbsolute(450f, 450f);
+			imagePage.scaleAbsolute(500f, 250f);
 
-			doc.add(fileName);
+			doc.add(imagePage);
 		} catch (Exception e) {
-			e.printStackTrace();
+			LOG.info("Erro ao gerar Screenshot. Exception: {}", e.getMessage());
 		}
 		
 	}
@@ -124,3 +133,4 @@ public class ConfigEvidencia {
 		doc.close();
 	}
 }
+
