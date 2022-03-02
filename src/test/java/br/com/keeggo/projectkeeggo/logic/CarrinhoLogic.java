@@ -11,7 +11,7 @@ import br.com.keeggo.projectkeeggo.utils.WebDriverConfig;
 
 public class CarrinhoLogic {
 	
-	private static final Logger LOG = LoggerFactory.getLogger(HomeLogic.class);
+	private static final Logger LOG = LoggerFactory.getLogger(AntesDeLogarLogic.class);
 
 	private CarrinhoPage carrinhoPage;
 	

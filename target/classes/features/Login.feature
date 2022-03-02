@@ -6,5 +6,5 @@ Feature: Login
 	Scenario: Realizar login
 		Given home clique no icone de login
 		When preencho campos de login
-		And clico no btn de logar
+		And clico no botao para entrar
 		Then valido o login

@@ -6,7 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import br.com.keeggo.projectkeeggo.logic.CadastroLogic;
-import br.com.keeggo.projectkeeggo.logic.HomeLogic;
+import br.com.keeggo.projectkeeggo.logic.AntesDeLogarLogic;
 import br.com.keeggo.projectkeeggo.utils.ConfigEvidencia;
 import br.com.keeggo.projectkeeggo.utils.WebDriverConfig;
 import io.cucumber.java.After;
@@ -19,15 +19,15 @@ import io.cucumber.java.en.When;
 
 public class CadastroStep {
 	
-	private static final Logger LOG = LoggerFactory.getLogger(HomeLogic.class);
+	private static final Logger LOG = LoggerFactory.getLogger(AntesDeLogarLogic.class);
 	
-	private HomeLogic homeLogic;
+	private AntesDeLogarLogic antesDeLogarLogic;
 	private CadastroLogic cadastroLogic;
 	
 	@Before
 	public void setup(Scenario scenario) {
-		ConfigEvidencia.nameFile = scenario.getName();
-		this.homeLogic = new HomeLogic();
+		ConfigEvidencia.nomeCenario = scenario.getName();
+		this.antesDeLogarLogic = new AntesDeLogarLogic();
 		this.cadastroLogic = new CadastroLogic();
 	}
 
@@ -39,15 +39,13 @@ public class CadastroStep {
 	
 	@Given("home clique no icone de login")
 	public void click_btn_redireciona_login() {
-		String msg = "Teste no cenário " + ConfigEvidencia.nameFile;
-		LOG.info(msg);
-		this.homeLogic.clickIconeAbrirPopUpLogin();
+		this.antesDeLogarLogic.clickIconeAbrirPopUpLogin();
 		
 	}
 
 	@When("clico no botao para redirecionar para tela de cadastro")
 	public void click_btn_redirecionar_cadastro() {		
-		this.homeLogic.clickBtnRedirecionarParaCadastro(); 
+		this.antesDeLogarLogic.clickBtnRedirecionarParaCadastro(); 
 	}
 	
 	@And("preencho os campos de cadastro")

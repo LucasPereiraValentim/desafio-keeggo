@@ -13,7 +13,7 @@ import br.com.keeggo.projectkeeggo.utils.WebDriverConfig;
 
 public class CadastroLogic {
 	
-	private static final Logger LOG = LoggerFactory.getLogger(HomeLogic.class);
+	private static final Logger LOG = LoggerFactory.getLogger(AntesDeLogarLogic.class);
 
 	private CadastroPage cadastroPage;
 

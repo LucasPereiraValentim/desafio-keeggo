@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import br.com.keeggo.projectkeeggo.logic.HomeLogic;
+import br.com.keeggo.projectkeeggo.logic.AntesDeLogarLogic;
 import br.com.keeggo.projectkeeggo.logic.LoginLogic;
 import br.com.keeggo.projectkeeggo.utils.ConfigEvidencia;
 import br.com.keeggo.projectkeeggo.utils.WebDriverConfig;
@@ -18,17 +18,17 @@ import io.cucumber.java.en.When;
 
 public class LoginStep {
 	
-	private static final Logger LOG = LoggerFactory.getLogger(HomeLogic.class);
+	private static final Logger LOG = LoggerFactory.getLogger(AntesDeLogarLogic.class);
 
-	private HomeLogic homeLogic;
+	private AntesDeLogarLogic antesDeLogarLogic;
 	
 	private LoginLogic loginLogic;
 	
 	
 	@Before
 	public void setup(Scenario scenario) {
-		ConfigEvidencia.nameFile = scenario.getName();
-		this.homeLogic = new HomeLogic();
+		ConfigEvidencia.nomeCenario = scenario.getName();
+		this.antesDeLogarLogic = new AntesDeLogarLogic();
 		this.loginLogic = new LoginLogic();
 		
 	}
@@ -41,21 +41,19 @@ public class LoginStep {
 	
 	@Given("home clique no icone de login")
 	public void click_btn_redireciona_login() {
-		String msg = "Teste no cenário " + ConfigEvidencia.nameFile;
-		LOG.info(msg);
-		this.homeLogic.clickIconeAbrirPopUpLogin();
+		this.antesDeLogarLogic.clickIconeAbrirPopUpLogin();
 		
 	}
 	
 	@When("preencho campos de login")
 	public void preencho_campos_login() {
-		this.homeLogic.preencherCampoUsuario();
-		this.homeLogic.preencherCampoSenha();
+		this.antesDeLogarLogic.preencherCampoUsuario();
+		this.antesDeLogarLogic.preencherCampoSenha();
 	}
 	
-	@And("clico no btn de logar")
+	@And("clico no botao para entrar")
 	public void click_btn_realizar_login() {
-		this.homeLogic.clickBtnRealizarLogin();
+		this.antesDeLogarLogic.clickBtnRealizarLogin();
 	}
 	
 	

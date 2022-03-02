@@ -24,15 +24,15 @@ import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
-import br.com.keeggo.projectkeeggo.logic.HomeLogic;
+import br.com.keeggo.projectkeeggo.logic.AntesDeLogarLogic;
 
 public class ConfigEvidencia {
 	
-	private static final Logger LOG = LoggerFactory.getLogger(HomeLogic.class);
+	private static final Logger LOG = LoggerFactory.getLogger(AntesDeLogarLogic.class);
 	
 	public static Document doc;
 
-	public static String nameFile;
+	public static String nomeCenario;
 
 	public static int cont = 0;
 	
@@ -41,7 +41,7 @@ public class ConfigEvidencia {
 		String dataEvidence = LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd-MM-yyy"));
 		File file = new File(System.getProperty("user.dir") + "\\evidences\\" + dataEvidence);
 		file.mkdirs();
-		File filePdf = new File(file.getAbsolutePath() + File.separator + nameFile.replace(" ", "_").toLowerCase() + ".pdf");
+		File filePdf = new File(file.getAbsolutePath() + File.separator + nomeCenario.replace(" ", "_").toLowerCase() + ".pdf");
 		try {
 			this.criarPdf(filePdf);
 		} catch (Exception e) {
@@ -87,7 +87,7 @@ public class ConfigEvidencia {
 		PdfPCell infoDataHora = new PdfPCell(new Paragraph("Data", fontCabecalho));
 		PdfPCell dataHora = new PdfPCell(new Paragraph(initTestTime, fontCabecalho));
 		PdfPCell infoDescricao = new PdfPCell(new Paragraph("Cenário", fontCabecalho));
-		PdfPCell nameDescricao = new PdfPCell(new Paragraph(nameFile, fontCabecalho));
+		PdfPCell nameDescricao = new PdfPCell(new Paragraph(nomeCenario, fontCabecalho));
 
 		tableHeader.addCell(infoProjeto);
 		tableHeader.addCell(nameProjeto);

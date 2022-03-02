@@ -12,7 +12,7 @@ import br.com.keeggo.projectkeeggo.utils.WebDriverConfig;
 
 public class LoginLogic {
 	
-	private static final Logger LOG = LoggerFactory.getLogger(HomeLogic.class);
+	private static final Logger LOG = LoggerFactory.getLogger(AntesDeLogarLogic.class);
 	
 	private LoginPage loginPage;
 	
