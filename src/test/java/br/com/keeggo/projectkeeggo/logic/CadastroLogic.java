@@ -112,6 +112,7 @@ public class CadastroLogic {
 		String msg = "Preencho o campo \"Adress\"";
 		LOG.info(msg);
 		WebDriverConfig.waitElementToBeClickable(cadastroPage.getByInputEndereco(), Duration.ofSeconds(50));
+		WebDriverConfig.scroll(this.cadastroPage.getByInputEndereco());
 		WebDriverConfig.browser.findElement(this.cadastroPage.getByInputEndereco()).sendKeys("Q. 5 Conj. F Lote 90");
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
 	}
@@ -130,6 +131,7 @@ public class CadastroLogic {
 		String msg = "Preencho o campo \"Postal Code\"";
 		LOG.info(msg);
 		WebDriverConfig.waitElementToBeClickable(cadastroPage.getByInputCep(), Duration.ofSeconds(50));
+		WebDriverConfig.scroll(this.cadastroPage.getByInputCep());
 		WebDriverConfig.browser.findElement(this.cadastroPage.getByInputCep()).sendKeys("73350-410");
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
 	}
@@ -139,6 +141,7 @@ public class CadastroLogic {
 		String msg = "Clico na CheckBox \"I agree to the advantageonlineshopping.com Conditions Of Use and Privacy Notice\"";
 		LOG.info(msg);
 		WebDriverConfig.waitElementToBeClickable(cadastroPage.getByCheckBoxConcordoTermos(), Duration.ofSeconds(50));
+		WebDriverConfig.scroll(this.cadastroPage.getByCheckBoxConcordoTermos());
 		WebDriverConfig.browser.findElement(this.cadastroPage.getByCheckBoxConcordoTermos()).click();
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
 	}

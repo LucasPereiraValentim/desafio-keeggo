@@ -27,6 +27,7 @@ public class ProdutoLogic {
 		String msg = "Seleciono um produto";
 		LOG.info(msg);
 		WebDriverConfig.waitElementToBeClickable(this.produtoPage.getBySelecionaProduto(), Duration.ofSeconds(50));
+		WebDriverConfig.scroll(this.produtoPage.getBySelecionaProduto());
 		this.configEvidencia.gerarScreenshot(WebDriverConfig.browser);
 		WebDriverConfig.browser.findElement(this.produtoPage.getBySelecionaProduto()).click();
 	}
