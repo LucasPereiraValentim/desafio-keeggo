@@ -12,3 +12,4 @@ Utilizem a criatividade nas definições das necessidades do projeto e as melhor
 - Realizar Login com Sucesso
 - Adicionar Produto ao Carrinho com Sucesso 
 - Remover produtos do carrinho
+- Não permitir logar com dados inválidos
